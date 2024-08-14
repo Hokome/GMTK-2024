@@ -1,3 +1,9 @@
+# Build folder
+build/
+
+# Backup and temporary files
+*.*~
+
 # Godot 4+ specific ignores
 .godot/
 
@@ -13,3 +19,6 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# VScode
+.vs/
