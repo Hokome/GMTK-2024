@@ -2,7 +2,8 @@
 build/
 
 # Backup and temporary files
-*.*~
+*.kra~
+*.png~
 
 # Godot 4+ specific ignores
 .godot/
