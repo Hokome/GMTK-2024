@@ -1,4 +1,5 @@
-
+# Build folder
+build/
 
 # Backup and temporary files
 *.kra~
