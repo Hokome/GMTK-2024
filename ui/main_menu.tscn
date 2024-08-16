@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://b77xytamp54p"]
+
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_amord"]
+[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="2_qtk7b"]
+
+[node name="main_menu" type="CanvasLayer"]
+script = ExtResource("1_amord")
+
+[node name="center_container" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_qtk7b")
+
+[node name="panel_container" type="PanelContainer" parent="center_container"]
+layout_mode = 2
+theme = ExtResource("2_qtk7b")
+
+[node name="margin_container" type="MarginContainer" parent="center_container/panel_container"]
+layout_mode = 2
+theme = ExtResource("2_qtk7b")
+
+[node name="v_box_container" type="VBoxContainer" parent="center_container/panel_container/margin_container"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("2_qtk7b")
+
+[node name="start" type="Button" parent="center_container/panel_container/margin_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("2_qtk7b")
+text = "Start"
+
+[node name="quit" type="Button" parent="center_container/panel_container/margin_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("2_qtk7b")
+text = "Quit"
+
+[connection signal="pressed" from="center_container/panel_container/margin_container/v_box_container/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="center_container/panel_container/margin_container/v_box_container/quit" to="." method="_on_quit_pressed"]
