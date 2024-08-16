@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx7ofru6ad8pa"]
+[gd_scene load_steps=5 format=3 uid="uid://dx7ofru6ad8pa"]
 
 [ext_resource type="Script" path="res://scripts/entity.gd" id="1_1qu3r"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="2_67k4m"]
+[ext_resource type="Script" path="res://scripts/band_leader.gd" id="3_7tko6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_chqqo"]
 radius = 24.0
@@ -11,13 +12,17 @@ motion_mode = 1
 script = ExtResource("1_1qu3r")
 speed = 100.0
 
-[node name="player_controller" type="Node" parent="."]
+[node name="controller" type="Node" parent="."]
 script = ExtResource("2_67k4m")
 
+[node name="band_leader" type="Node" parent="."]
+script = ExtResource("3_7tko6")
+
 [node name="placeholder" type="Polygon2D" parent="."]
+color = Color(0.690196, 1, 1, 1)
 polygon = PackedVector2Array(0, -24, 24, 0, 0, 24, -24, 0)
 
 [node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_chqqo")
 
-[node name="camera_2d" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="."]
