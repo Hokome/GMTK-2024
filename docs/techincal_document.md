@@ -4,12 +4,12 @@ This document is mainly for Hokome and Ray.
 
 ## Entities
 
-Enemies, band members and the band leader are all the same Entity script deriving from CharacterBody.
+Enemies, band members and the band leader are all the same Entity script deriving from CharacterBody. This Entity script should not be inherited and only manages movement and physics by using a variable which is modified by a child node.
 
-## Player (drum major)
+All other behaviour and data should be inside child nodes, that includes:
 
-The band leader is controlled by the player.
+- Attack patterns
+- Input
+- Automatic movement
+- Health
 
-## Marching band
-
-Their attack patterns are in a child node.

@@ -9,7 +9,7 @@ radius = 24.0
 [node name="player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_1qu3r")
-base_speed = 100.0
+speed = 100.0
 
 [node name="player_controller" type="Node" parent="."]
 script = ExtResource("2_67k4m")

@@ -8,7 +8,7 @@ Vampire survivors but you're a drum major (marching band leader) and your upgrad
 
 <img src="sketches/gameplay_vision_battle.png" alt="Gameplay vision" width="640"/>
 
-<img src="sketches/gamepla_vision_upgrade.png" alt="Gameplay vision" width="640"/>
+<img src="sketches/gameplay_vision_upgrade.png" alt="Upgrade vision" width="640"/>
 
 ## Instruments
 
