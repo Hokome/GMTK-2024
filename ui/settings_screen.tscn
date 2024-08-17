@@ -1,0 +1,152 @@
+[gd_scene load_steps=2 format=3 uid="uid://7jop3ik8ticy"]
+
+[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="1_h68wd"]
+
+[node name="panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h68wd")
+
+[node name="center_container" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h68wd")
+
+[node name="entire_container" type="VBoxContainer" parent="center_container"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="settings_label" type="Label" parent="center_container/entire_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_h68wd")
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="v_box_container" type="VBoxContainer" parent="center_container/entire_container"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("1_h68wd")
+alignment = 1
+
+[node name="resolution_container" type="GridContainer" parent="center_container/entire_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("1_h68wd")
+columns = 2
+
+[node name="window_label" type="Label" parent="center_container/entire_container/v_box_container/resolution_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_h68wd")
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 0
+text = "Window Mode"
+
+[node name="window_drop_down" type="OptionButton" parent="center_container/entire_container/v_box_container/resolution_container"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_h68wd")
+theme_override_constants/outline_size = 0
+
+[node name="resolution_label" type="Label" parent="center_container/entire_container/v_box_container/resolution_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_h68wd")
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 0
+text = "Resolution
+"
+
+[node name="res_drop_down" type="OptionButton" parent="center_container/entire_container/v_box_container/resolution_container"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_h68wd")
+theme_override_constants/outline_size = 0
+
+[node name="h_separator" type="HSeparator" parent="center_container/entire_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("1_h68wd")
+
+[node name="music_container" type="GridContainer" parent="center_container/entire_container/v_box_container"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("1_h68wd")
+columns = 3
+
+[node name="master_slider" type="VSlider" parent="center_container/entire_container/v_box_container/music_container"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+tick_count = 4
+
+[node name="music_slider" type="VSlider" parent="center_container/entire_container/v_box_container/music_container"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+tick_count = 4
+
+[node name="sfx_slider" type="VSlider" parent="center_container/entire_container/v_box_container/music_container"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+tick_count = 4
+
+[node name="master_label" type="Label" parent="center_container/entire_container/v_box_container/music_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 0
+text = "Master"
+horizontal_alignment = 1
+
+[node name="music_label" type="Label" parent="center_container/entire_container/v_box_container/music_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 0
+text = "Music"
+horizontal_alignment = 1
+
+[node name="sfx_label" type="Label" parent="center_container/entire_container/v_box_container/music_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"HeaderSmall"
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 0
+text = "Sfx
+"
+horizontal_alignment = 1
+
+[node name="btn_container" type="HBoxContainer" parent="center_container/entire_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("1_h68wd")
+
+[node name="save_button" type="Button" parent="center_container/entire_container/v_box_container/btn_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_h68wd")
+text = "Save"
+
+[node name="back_button" type="Button" parent="center_container/entire_container/v_box_container/btn_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_h68wd")
+text = "Back
+"
