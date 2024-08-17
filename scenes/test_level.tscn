@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=4 uid="uid://bvv1kpr8ojoh2"]
 
-[ext_resource type="TileSet" uid="uid://dclicwpp6t3v5" path="res://Assets/prototype_tile_set.tres" id="1_dlfii"]
+[ext_resource type="TileSet" uid="uid://dclicwpp6t3v5" path="res://assets/prototype_tile_set.tres" id="1_dlfii"]
 [ext_resource type="PackedScene" uid="uid://cyt8d3hqpd6ae" path="res://scenes/enemy_spawner.tscn" id="2_x01c2"]
 
 [node name="test_level" type="Node2D"]
