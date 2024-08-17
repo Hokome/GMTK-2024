@@ -9,6 +9,7 @@ radius = 24.0
 
 [node name="player" type="CharacterBody2D"]
 motion_mode = 1
+wall_min_slide_angle = 0.872665
 script = ExtResource("1_1qu3r")
 speed = 100.0
 
