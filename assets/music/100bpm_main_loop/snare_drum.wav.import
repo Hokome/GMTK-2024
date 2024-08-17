@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bd27ogaimm87t"
-path="res://.godot/imported/Snaredrum.wav-95b3fd942ee9797a3be9754ce4e5d080.sample"
+path="res://.godot/imported/snare_drum.wav-442ce4b8113d586f4c1a9ca82facffff.sample"
 
 [deps]
 
-source_file="res://assets/music/100BPM main loop/Snaredrum.wav"
-dest_files=["res://.godot/imported/Snaredrum.wav-95b3fd942ee9797a3be9754ce4e5d080.sample"]
+source_file="res://assets/music/100bpm_main_loop/snare_drum.wav"
+dest_files=["res://.godot/imported/snare_drum.wav-442ce4b8113d586f4c1a9ca82facffff.sample"]
 
 [params]
 
