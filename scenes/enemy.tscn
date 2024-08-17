@@ -32,9 +32,11 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("3_natej")
-damage = 20.0
+damage = 5.0
 
 [node name="shape" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("CircleShape2D_n7ahp")
 
 [node name="cooldown" type="Timer" parent="hitbox"]
+process_callback = 0
+one_shot = true
