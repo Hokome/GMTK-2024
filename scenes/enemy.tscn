@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d311nkqnp2kt"]
 
 [ext_resource type="Script" path="res://scripts/entity.gd" id="1_07fhc"]
-[ext_resource type="Script" path="res://scripts/enemy_basic.gd" id="1_8qy2a"]
+[ext_resource type="Script" path="res://scripts/enemy_follow.gd" id="1_8qy2a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d57qw"]
 radius = 24.0

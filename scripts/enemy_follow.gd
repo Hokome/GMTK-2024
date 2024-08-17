@@ -1,7 +1,7 @@
 extends Node
-class_name FollowPlayer
+class_name EnemyFollow
 
-var target:Entity
+var target: Entity
 @onready var entity: Entity = get_parent()
 
 func _physics_process(_delta: float) -> void:
