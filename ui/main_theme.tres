@@ -1,4 +1,10 @@
-[gd_resource type="Theme" format=3 uid="uid://cabxqkghtkxtt"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cabxqkghtkxtt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p20wd"]
+bg_color = Color(0.6, 0.18, 0.18, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bh0ic"]
+bg_color = Color(0.281538, 0.711096, 0, 1)
 
 [resource]
 default_font_size = 26
@@ -9,6 +15,9 @@ Label/constants/shadow_offset_x = 10
 Label/constants/shadow_offset_y = 5
 Label/constants/shadow_outline_size = 10
 Label/font_sizes/font_size = 50
+HealthBar/base_type = &"ProgressBar"
+HealthBar/styles/background = SubResource("StyleBoxFlat_p20wd")
+HealthBar/styles/fill = SubResource("StyleBoxFlat_bh0ic")
 MarginContainer/constants/margin_bottom = 5
 MarginContainer/constants/margin_left = 5
 MarginContainer/constants/margin_right = 5

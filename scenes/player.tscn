@@ -1,14 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx7ofru6ad8pa"]
+[gd_scene load_steps=8 format=3 uid="uid://dx7ofru6ad8pa"]
 
 [ext_resource type="Script" path="res://scripts/entity.gd" id="1_1qu3r"]
 [ext_resource type="Script" path="res://scripts/player_controller.gd" id="2_67k4m"]
 [ext_resource type="Script" path="res://scripts/band_leader.gd" id="3_7tko6"]
+[ext_resource type="Script" path="res://scripts/health.gd" id="4_4ikf4"]
 [ext_resource type="PackedScene" uid="uid://cyt8d3hqpd6ae" path="res://scenes/enemy_spawner.tscn" id="4_ekqs5"]
+[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="6_oyb0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_chqqo"]
 radius = 24.0
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 2
 motion_mode = 1
 wall_min_slide_angle = 0.872665
 script = ExtResource("1_1qu3r")
@@ -20,6 +23,9 @@ script = ExtResource("2_67k4m")
 [node name="band_leader" type="Node" parent="."]
 script = ExtResource("3_7tko6")
 
+[node name="health" type="Node" parent="."]
+script = ExtResource("4_4ikf4")
+
 [node name="placeholder" type="Polygon2D" parent="."]
 color = Color(0.690196, 1, 1, 1)
 polygon = PackedVector2Array(0, -24, 24, 0, 0, 24, -24, 0)
@@ -30,3 +36,22 @@ shape = SubResource("CircleShape2D_chqqo")
 [node name="camera" type="Camera2D" parent="."]
 
 [node name="spawner" parent="." instance=ExtResource("4_ekqs5")]
+
+[node name="player_hud" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="health_bar" type="ProgressBar" parent="player_hud"]
+custom_minimum_size = Vector2(100, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_right = 56.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme = ExtResource("6_oyb0s")
+theme_type_variation = &"HealthBar"
+value = 100.0
+show_percentage = false
+
+[connection signal="health_changed" from="health" to="player_hud/health_bar" method="set_value"]
