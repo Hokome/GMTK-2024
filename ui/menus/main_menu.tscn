@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://borujsk6gckfo"]
 
-[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_amord"]
+[ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="1_amord"]
 [ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="2_qtk7b"]
 
 [node name="main" type="CenterContainer"]

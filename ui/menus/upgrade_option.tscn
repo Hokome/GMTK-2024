@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://yctold6jgajo"]
+
+[node name="upgrade_button" type="PanelContainer"]
+
+[node name="h_box_container" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="h_box_container"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 2
+
+[node name="v_box_container" type="VBoxContainer" parent="h_box_container"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="h_box_container/v_box_container"]
+layout_mode = 2
+
+[node name="rich_text_label" type="RichTextLabel" parent="h_box_container/v_box_container"]
+layout_mode = 2

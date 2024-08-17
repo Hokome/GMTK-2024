@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1sp481g8ifss"]
 
 [ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="1_w0i6h"]
-[ext_resource type="Script" path="res://ui/game_over_menu.gd" id="2_d2iru"]
+[ext_resource type="Script" path="res://ui/menus/game_over_menu.gd" id="2_d2iru"]
 
 [node name="game_over" type="Panel"]
 anchors_preset = 15

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://b77xytamp54p"]
 
-[ext_resource type="Script" path="res://ui/menu_manager.gd" id="1_kvpfr"]
-[ext_resource type="PackedScene" uid="uid://borujsk6gckfo" path="res://ui/main_menu.tscn" id="1_uwpqo"]
-[ext_resource type="PackedScene" uid="uid://cfm2tg2ad6ft6" path="res://ui/pause_menu.tscn" id="3_658fm"]
-[ext_resource type="PackedScene" uid="uid://d1sp481g8ifss" path="res://ui/game_over_menu.tscn" id="4_7ehcl"]
+[ext_resource type="Script" path="res://ui/menus/menu_manager.gd" id="1_kvpfr"]
+[ext_resource type="PackedScene" uid="uid://borujsk6gckfo" path="res://ui/menus/main_menu.tscn" id="1_uwpqo"]
+[ext_resource type="PackedScene" uid="uid://cfm2tg2ad6ft6" path="res://ui/menus/pause_menu.tscn" id="3_658fm"]
+[ext_resource type="PackedScene" uid="uid://d1sp481g8ifss" path="res://ui/menus/game_over_menu.tscn" id="4_7ehcl"]
 
 [node name="menu" type="CanvasLayer" node_paths=PackedStringArray("starting_menu")]
 script = ExtResource("1_kvpfr")
