@@ -4,14 +4,16 @@ class_name Game
 var player: Entity
 
 func start():
-	spawn_player()
-
-func spawn_player():
-	var level_scene :=preload("res://scenes/test_level.tscn")
-	var player_scene := preload("res://scenes/player.tscn")
-	player = player_scene.instantiate()
+	var level_scene := preload("res://scenes/test_level.tscn")
 	var level = level_scene.instantiate()
 	add_child(level)
+	
+	spawn_player()
+
+
+func spawn_player():
+	var player_scene := preload("res://scenes/player.tscn")
+	player = player_scene.instantiate()
 	add_child(player)
 	
 	spawn_member()
