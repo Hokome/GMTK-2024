@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfm2tg2ad6ft6"]
+[gd_scene load_steps=3 format=3 uid="uid://cfm2tg2ad6ft6"]
 
-[ext_resource type="Texture2D" uid="uid://ikyk6tb0bqk1" path="res://ui/pause_screen_bg.tres" id="1_asjr3"]
 [ext_resource type="Script" path="res://ui/pause_menu.gd" id="1_rtprx"]
 [ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="3_2ux82"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qs5ky"]
-texture = ExtResource("1_asjr3")
 
 [node name="pause" type="Panel"]
 anchors_preset = 15
@@ -13,7 +9,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_qs5ky")
+theme = ExtResource("3_2ux82")
+theme_type_variation = &"FullScreenPanel"
 script = ExtResource("1_rtprx")
 
 [node name="center_container" type="CenterContainer" parent="."]
@@ -35,6 +32,7 @@ alignment = 1
 process_mode = 2
 layout_mode = 2
 theme = ExtResource("3_2ux82")
+theme_type_variation = &"BigLabel"
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1

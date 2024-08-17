@@ -1,4 +1,9 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cabxqkghtkxtt"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cabxqkghtkxtt"]
+
+[ext_resource type="Texture2D" uid="uid://ikyk6tb0bqk1" path="res://ui/pause_screen_bg.tres" id="1_5dgso"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pyv1b"]
+texture = ExtResource("1_5dgso")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p20wd"]
 bg_color = Color(0.6, 0.18, 0.18, 1)
@@ -8,6 +13,10 @@ bg_color = Color(0.281538, 0.711096, 0, 1)
 
 [resource]
 default_font_size = 26
+BigLabel/base_type = &"Label"
+BigLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
+BigLabel/constants/shadow_outline_size = 20
+BigLabel/font_sizes/font_size = 60
 BoxContainer/constants/separation = 10
 Label/colors/font_shadow_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 10
@@ -15,6 +24,8 @@ Label/constants/shadow_offset_x = 10
 Label/constants/shadow_offset_y = 5
 Label/constants/shadow_outline_size = 10
 Label/font_sizes/font_size = 50
+FullScreenPanel/base_type = &"Panel"
+FullScreenPanel/styles/panel = SubResource("StyleBoxTexture_pyv1b")
 HealthBar/base_type = &"ProgressBar"
 HealthBar/styles/background = SubResource("StyleBoxFlat_p20wd")
 HealthBar/styles/fill = SubResource("StyleBoxFlat_bh0ic")
