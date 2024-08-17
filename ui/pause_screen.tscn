@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfm2tg2ad6ft6"]
+
+[ext_resource type="Texture2D" uid="uid://ikyk6tb0bqk1" path="res://ui/pause_screen_bg.tres" id="1_asjr3"]
+[ext_resource type="Script" path="res://ui/pause_screen.gd" id="1_rtprx"]
+[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="3_2ux82"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qs5ky"]
+texture = ExtResource("1_asjr3")
+
+[node name="panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qs5ky")
+script = ExtResource("1_rtprx")
+
+[node name="center_container" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -113.5
+offset_right = 68.0
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_2ux82")
+
+[node name="v_box_container" type="VBoxContainer" parent="center_container"]
+layout_mode = 2
+theme = ExtResource("3_2ux82")
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="paused_label" type="Label" parent="center_container/v_box_container"]
+process_mode = 2
+layout_mode = 2
+theme = ExtResource("3_2ux82")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button_container" type="VBoxContainer" parent="center_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("3_2ux82")
+alignment = 1
+
+[node name="resume_btn" type="Button" parent="center_container/v_box_container/button_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_2ux82")
+text = "Resume"
+
+[node name="quit_btn" type="Button" parent="center_container/v_box_container/button_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_2ux82")
+text = "Quit"
+
+[connection signal="pressed" from="center_container/v_box_container/button_container/resume_btn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="center_container/v_box_container/button_container/quit_btn" to="." method="_on_quit_btn_pressed"]

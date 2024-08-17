@@ -2,6 +2,7 @@
 
 [resource]
 default_font_size = 26
+BoxContainer/constants/separation = 10
 MarginContainer/constants/margin_bottom = 5
 MarginContainer/constants/margin_left = 5
 MarginContainer/constants/margin_right = 5
