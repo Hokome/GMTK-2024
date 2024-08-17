@@ -15,3 +15,7 @@ Vampire survivors but you're a drum major (marching band leader) and your upgrad
 Ideas of what the instruments could do:
 
 Big bass: large area attack around the musician
+
+## Aesthetic
+
+<img src="sketches/mermaid_band_member.png">
