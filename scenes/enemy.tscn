@@ -1,18 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://d311nkqnp2kt"]
+[gd_scene load_steps=6 format=3 uid="uid://d311nkqnp2kt"]
 
 [ext_resource type="Script" path="res://scripts/entity.gd" id="1_07fhc"]
 [ext_resource type="Script" path="res://scripts/enemy_follow.gd" id="1_8qy2a"]
+[ext_resource type="Script" path="res://scripts/enemy_hitbox.gd" id="3_natej"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d57qw"]
 radius = 24.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7ahp"]
+radius = 48.0
+
 [node name="enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_07fhc")
-speed = 70.0
-
-[node name="collider" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_d57qw")
+speed = 50.0
 
 [node name="follow_player" type="Node" parent="."]
 script = ExtResource("1_8qy2a")
@@ -20,3 +23,18 @@ script = ExtResource("1_8qy2a")
 [node name="placeholder" type="Polygon2D" parent="."]
 color = Color(1, 0.49, 0.49, 1)
 polygon = PackedVector2Array(-16, -32, 16, -32, 32, -16, 56, 0, 32, 16, 16, 32, -16, 32, -32, 16, -32, -16)
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_d57qw")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_natej")
+damage = 20.0
+
+[node name="shape" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_n7ahp")
+
+[node name="cooldown" type="Timer" parent="hitbox"]

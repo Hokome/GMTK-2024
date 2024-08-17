@@ -7,6 +7,5 @@ var target: Entity
 func _physics_process(_delta: float) -> void:
 	#Change direction based on player
 	var direction := entity.position.direction_to(target.position)
-	print(direction)
 	entity.movement_direction = direction
 	$"../placeholder".look_at(target.position)

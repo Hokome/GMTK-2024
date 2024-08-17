@@ -9,13 +9,12 @@ radius = 24.0
 
 [node name="entity" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 3
 motion_mode = 1
 wall_min_slide_angle = 0.872665
 script = ExtResource("1_tbeal")
-speed = 90.0
+speed = 100.0
 
-[node name="controller" type="Node" parent="." node_paths=PackedStringArray("pointer")]
+[node name="member_controller" type="Node" parent="." node_paths=PackedStringArray("pointer")]
 script = ExtResource("2_w6x3n")
 pointer = NodePath("../sprite_2d")
 

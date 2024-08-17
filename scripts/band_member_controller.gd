@@ -1,6 +1,8 @@
 extends Node
 class_name BandMemberController
 
+const TARGET_DISTANCE := 50.0
+
 var front_member: Entity
 @onready var entity: Entity = get_parent()
 #just for debugging purposes
@@ -11,6 +13,8 @@ func _ready() -> void:
 	#print("ready: " + name+" |"+str(entity.position))
 
 func _physics_process(_delta: float) -> void:
-	var direction := entity.position.direction_to(front_member.position)
-	pointer.position = 10*direction
-	entity.movement_direction = direction
+	var direction := front_member.position - entity.position
+	if direction.length_squared() > TARGET_DISTANCE * TARGET_DISTANCE:
+		entity.movement_direction = direction.normalized()
+	
+	pointer.position = 10*direction.normalized()
