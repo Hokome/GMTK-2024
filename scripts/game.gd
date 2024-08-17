@@ -1,7 +1,12 @@
 extends Node
 class_name Game
 
+var menu: MenuManager
 var player: Entity
+var paused := false:
+	set(val):
+		paused = val
+		Engine.time_scale = 0 if paused else 1
 
 func start():
 	var level_scene := preload("res://scenes/test_level.tscn")
@@ -9,7 +14,6 @@ func start():
 	add_child(level)
 	
 	spawn_player()
-
 
 func spawn_player():
 	var player_scene := preload("res://scenes/player.tscn")
@@ -28,4 +32,12 @@ func spawn_member():
 	player.get_node("band_leader").add_member(member)
 	
 func game_over():
-	print("game over")
+	paused = true
+	menu.select_menu("game_over")
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_echo(): return
+	if event.is_pressed():
+		if event.is_action("pause"):
+			menu.select_menu("pause")
+			paused = true
