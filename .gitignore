@@ -1,6 +1,9 @@
 # Build folder
 build/
 
+#addons
+addons/
+
 # Backup and temporary files
 *.kra~
 *.png~

@@ -28,6 +28,10 @@ project/assembly_name="GMTK-2024"
 
 naming/node_name_casing=2
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/script-tabs/plugin.cfg")
+
 [input]
 
 move_left={
