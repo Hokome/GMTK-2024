@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bd27ogaimm87t"
+path="res://.godot/imported/Snaredrum.wav-95b3fd942ee9797a3be9754ce4e5d080.sample"
+
+[deps]
+
+source_file="res://assets/music/100BPM main loop/Snaredrum.wav"
+dest_files=["res://.godot/imported/Snaredrum.wav-95b3fd942ee9797a3be9754ce4e5d080.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
