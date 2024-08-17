@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=2 format=3 uid="uid://b1ij5mwc11igi"]
+
+[ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_iubgc"]
+
+[resource]
+script = ExtResource("1_iubgc")
+title = "Bass Drum"
+description = ""

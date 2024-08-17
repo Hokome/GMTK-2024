@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=2 format=3 uid="uid://bx4f0amcgwc48"]
+
+[ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_7c70m"]
+
+[resource]
+script = ExtResource("1_7c70m")
+title = "Snare Drum"
+description = "Deals high damage in random spots around the musician"

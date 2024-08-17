@@ -11,6 +11,13 @@ var paused := false:
 var start_time := 0
 var started := false
 
+var upgrades: Array[BandMemberUpgrade] = [
+	preload("res://assets/upgrades/bass_drum_upgrade.tres"),
+	preload("res://assets/upgrades/snare_drum_upgrade.tres"),
+	preload("res://assets/upgrades/tuba_upgrade.tres"),
+	preload("res://assets/upgrades/trumpet_upgrade.tres"),
+]
+
 func start():
 	started = true
 	hud.visible = true

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=2 format=3 uid="uid://dwivv14ebwbcb"]
+
+[ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_h12qd"]
+
+[resource]
+script = ExtResource("1_h12qd")
+title = "Tuba"
+description = ""

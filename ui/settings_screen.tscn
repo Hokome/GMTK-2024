@@ -27,6 +27,7 @@ theme_override_constants/separation = 50
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_h68wd")
+theme_type_variation = &"BigLabel"
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
