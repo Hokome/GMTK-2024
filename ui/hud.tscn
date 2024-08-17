@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://453m87ti7xku"]
+[gd_scene load_steps=3 format=3 uid="uid://453m87ti7xku"]
 
 [ext_resource type="Script" path="res://ui/hud.gd" id="1_hyujy"]
+[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="2_sldov"]
 
-[node name="hud" type="CanvasLayer"]
+[node name="hud" type="CanvasLayer" node_paths=PackedStringArray("time_label")]
+visible = false
 script = ExtResource("1_hyujy")
+time_label = NodePath("label")
+
+[node name="label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("2_sldov")
+theme_type_variation = &"BigLabel"
+text = "00:00:00"

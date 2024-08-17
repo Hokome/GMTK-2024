@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1sp481g8ifss"]
+
+[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="1_w0i6h"]
+[ext_resource type="Script" path="res://ui/game_over_menu.gd" id="2_d2iru"]
+
+[node name="game_over" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w0i6h")
+theme_type_variation = &"FullScreenPanel"
+script = ExtResource("2_d2iru")
+
+[node name="center_container" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_w0i6h")
+
+[node name="v_box_container" type="VBoxContainer" parent="center_container"]
+layout_mode = 2
+theme = ExtResource("1_w0i6h")
+
+[node name="game_over_label" type="Label" parent="center_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("1_w0i6h")
+theme_type_variation = &"BigLabel"
+text = "Game Over"
+
+[node name="retry" type="Button" parent="center_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("1_w0i6h")
+text = "Retry"
+
+[node name="back" type="Button" parent="center_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("1_w0i6h")
+text = "Menu"
+
+[connection signal="pressed" from="center_container/v_box_container/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="center_container/v_box_container/back" to="." method="_on_back_pressed"]

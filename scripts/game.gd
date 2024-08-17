@@ -8,12 +8,26 @@ var paused := false:
 		paused = val
 		Engine.time_scale = 0 if paused else 1
 
+var start_time := 0
+var started := false
+
+var upgrades: Array[BandMemberUpgrade] = [
+	preload("res://assets/upgrades/bass_drum_upgrade.tres"),
+	preload("res://assets/upgrades/snare_drum_upgrade.tres"),
+	preload("res://assets/upgrades/tuba_upgrade.tres"),
+	preload("res://assets/upgrades/trumpet_upgrade.tres"),
+]
+
 func start():
+	started = true
+	hud.visible = true
+	
 	var level_scene := preload("res://scenes/test_level.tscn")
 	var level = level_scene.instantiate()
 	add_child(level)
 	
 	spawn_player()
+	start_time = Time.get_unix_time_from_system()
 
 func spawn_player():
 	var player_scene := preload("res://scenes/player.tscn")
@@ -23,7 +37,7 @@ func spawn_player():
 	
 	spawn_member()
 	spawn_member()
-
+	
 func spawn_member():
 	var member_scene := preload("res://scenes/band_member.tscn")
 	var member_entity: Entity = member_scene.instantiate()
@@ -34,6 +48,13 @@ func spawn_member():
 func game_over():
 	paused = true
 	menu.select_menu("game_over")
+
+func cleanup():
+	started = false
+	for c in get_children():
+		c.queue_free()
+	paused = false
+	hud.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo(): return

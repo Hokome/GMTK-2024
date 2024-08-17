@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=2 format=3 uid="uid://r2epkqrlmugc"]
+
+[ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_mg3rk"]
+
+[resource]
+script = ExtResource("1_mg3rk")
+title = "Trumpet"
+description = ""
