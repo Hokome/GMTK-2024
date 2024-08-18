@@ -18,6 +18,7 @@ var started := false
 var upgrades: Array[BandMemberUpgrade] = [
 	preload("res://assets/upgrades/bass_drum_upgrade.tres"),
 	preload("res://assets/upgrades/snare_drum_upgrade.tres"),
+	preload("res://assets/upgrades/tuba_upgrade.tres"),
 ]
 var xp_drops: Dictionary = {
 	1: preload("res://scenes/xp_drop.tscn"),
@@ -47,6 +48,7 @@ func spawn_player():
 	
 	spawn_member(upgrades[0])
 	spawn_member(upgrades[1])
+	spawn_member(upgrades[2])
 
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
