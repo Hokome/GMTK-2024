@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d311nkqnp2kt"]
+[gd_scene load_steps=7 format=3 uid="uid://d311nkqnp2kt"]
 
-[ext_resource type="Script" path="res://scripts/entity.gd" id="1_07fhc"]
-[ext_resource type="Script" path="res://scripts/enemy_follow.gd" id="1_8qy2a"]
-[ext_resource type="Script" path="res://scripts/enemy_hitbox.gd" id="3_natej"]
+[ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_07fhc"]
+[ext_resource type="Script" path="res://scripts/entity/enemy_follow.gd" id="1_8qy2a"]
+[ext_resource type="Script" path="res://scripts/entity/enemy_hitbox.gd" id="3_natej"]
+[ext_resource type="Script" path="res://scripts/entity/health.gd" id="4_7e7nd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d57qw"]
 radius = 24.0
@@ -40,3 +41,9 @@ shape = SubResource("CircleShape2D_n7ahp")
 [node name="cooldown" type="Timer" parent="hitbox"]
 process_callback = 0
 one_shot = true
+
+[node name="health" type="Node" parent="."]
+script = ExtResource("4_7e7nd")
+max_health = 40.0
+
+[connection signal="died" from="health" to="." method="queue_free"]
