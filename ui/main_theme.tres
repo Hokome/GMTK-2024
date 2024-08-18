@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cabxqkghtkxtt"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cabxqkghtkxtt"]
 
 [ext_resource type="Texture2D" uid="uid://ikyk6tb0bqk1" path="res://ui/menus/pause_screen_bg.tres" id="1_5dgso"]
 
@@ -10,6 +10,18 @@ bg_color = Color(0.6, 0.18, 0.18, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bh0ic"]
 bg_color = Color(0.281538, 0.711096, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2fja"]
+bg_color = Color(0.20871, 0.20871, 0.20871, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tr8tx"]
 bg_color = Color(0.165656, 0.165656, 0.165656, 1)
@@ -28,6 +40,8 @@ FullScreenPanel/base_type = &"Panel"
 FullScreenPanel/styles/panel = SubResource("StyleBoxTexture_pyv1b")
 GridContainer/constants/h_separation = 10
 GridContainer/constants/v_separation = 10
+HeaderMedium/base_type = &"Label"
+HeaderMedium/font_sizes/font_size = 24
 HealthBar/base_type = &"ProgressBar"
 HealthBar/styles/background = SubResource("StyleBoxFlat_p20wd")
 HealthBar/styles/fill = SubResource("StyleBoxFlat_bh0ic")
@@ -35,6 +49,9 @@ MarginContainer/constants/margin_bottom = 5
 MarginContainer/constants/margin_left = 5
 MarginContainer/constants/margin_right = 5
 MarginContainer/constants/margin_top = 5
+RichTextLabel/font_sizes/normal_font_size = 16
+UpgradeButton/base_type = &"PanelContainer"
+UpgradeButton/styles/panel = SubResource("StyleBoxFlat_g2fja")
 XPBar/base_type = &"ProgressBar"
 XPBar/styles/background = SubResource("StyleBoxFlat_tr8tx")
 XPBar/styles/fill = SubResource("StyleBoxFlat_8aur4")

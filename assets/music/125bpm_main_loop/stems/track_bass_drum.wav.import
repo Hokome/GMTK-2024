@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ct7my8krt6iir"
-path="res://.godot/imported/gmtk2024 - Bassdrum.wav-4fe15574f84b67eaab13cda12b7b6622.sample"
+path="res://.godot/imported/track_bass_drum.wav-efee54b274268103ca02d8acd350f81b.sample"
 
 [deps]
 
-source_file="res://assets/music/125bpm_main_loop/stems/gmtk2024 - Bassdrum.wav"
-dest_files=["res://.godot/imported/gmtk2024 - Bassdrum.wav-4fe15574f84b67eaab13cda12b7b6622.sample"]
+source_file="res://assets/music/125bpm_main_loop/stems/track_bass_drum.wav"
+dest_files=["res://.godot/imported/track_bass_drum.wav-efee54b274268103ca02d8acd350f81b.sample"]
 
 [params]
 

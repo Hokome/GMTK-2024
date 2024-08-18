@@ -1,8 +1,14 @@
-[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=2 format=3 uid="uid://dwivv14ebwbcb"]
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=5 format=3 uid="uid://dwivv14ebwbcb"]
 
+[ext_resource type="Texture2D" uid="uid://3ydyuvlui0bu" path="res://assets/icons/icon_drum.png" id="1_1eo04"]
+[ext_resource type="SpriteFrames" uid="uid://dar6f72pesydp" path="res://assets/animations/frames_tuba.tres" id="1_e1fll"]
 [ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_h12qd"]
+[ext_resource type="AudioStream" uid="uid://ceafehy0wbi0n" path="res://assets/music/125bpm_main_loop/stems/track_tuba.wav" id="3_sjtj7"]
 
 [resource]
 script = ExtResource("1_h12qd")
 title = "Tuba"
-description = ""
+description = "Deals damage in a long lasting area around the musician"
+frames = ExtResource("1_e1fll")
+icon = ExtResource("1_1eo04")
+track = ExtResource("3_sjtj7")

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://po6gdls55waa"
-path="res://.godot/imported/gmtk2024 - Cymbal.wav-27f495d2aeb73bd84b89c3d625a42ec5.sample"
+path="res://.godot/imported/track_cymbal.wav-9dbf533ac8b761e872de9ea600b6438c.sample"
 
 [deps]
 
-source_file="res://assets/music/125bpm_main_loop/stems/gmtk2024 - Cymbal.wav"
-dest_files=["res://.godot/imported/gmtk2024 - Cymbal.wav-27f495d2aeb73bd84b89c3d625a42ec5.sample"]
+source_file="res://assets/music/125bpm_main_loop/stems/track_cymbal.wav"
+dest_files=["res://.godot/imported/track_cymbal.wav-9dbf533ac8b761e872de9ea600b6438c.sample"]
 
 [params]
 

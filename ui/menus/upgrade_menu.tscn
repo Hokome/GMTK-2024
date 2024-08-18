@@ -29,3 +29,9 @@ theme = ExtResource("1_d082s")
 
 [node name="upgrade_button" parent="center_container/v_box_container" instance=ExtResource("3_y0cs7")]
 layout_mode = 2
+
+[node name="upgrade_button2" parent="center_container/v_box_container" instance=ExtResource("3_y0cs7")]
+layout_mode = 2
+
+[node name="upgrade_button3" parent="center_container/v_box_container" instance=ExtResource("3_y0cs7")]
+layout_mode = 2

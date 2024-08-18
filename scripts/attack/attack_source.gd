@@ -7,4 +7,6 @@ func spawn_attack() -> void:
 	if !attack_scene: return
 	var attack: Node2D = attack_scene.instantiate()
 	game.add_child(attack)
-	attack.global_position = global_position
+	attack.global_position = attack_position()
+
+func attack_position() -> Vector2: return global_position

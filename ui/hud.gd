@@ -4,9 +4,9 @@ class_name HUD
 @export var time_label: Label
 @export var xp_bar: ProgressBar
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !game.started: return
-	var elapsed_time := Time.get_ticks_usec() - game.start_time
+	var elapsed_time: float = Time.get_ticks_usec() - game.start_time
 	elapsed_time /= 1000.0
 	elapsed_time = roundf(elapsed_time)
 	

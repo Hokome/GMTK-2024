@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ufjfp4n1g7ft"]
 
-[ext_resource type="Script" path="res://scripts/entity/attack_source.gd" id="1_lr1df"]
+[ext_resource type="Script" path="res://scripts/attack/attack_source.gd" id="1_lr1df"]
 [ext_resource type="PackedScene" uid="uid://bjta2ytbtdgne" path="res://scenes/attacks/bass_drum_attack.tscn" id="2_dpbl2"]
 
 [node name="bass_drum_attack_source" type="Node2D"]

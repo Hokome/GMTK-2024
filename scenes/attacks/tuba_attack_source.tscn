@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6jqlf2ls47i5"]
+
+[ext_resource type="Script" path="res://scripts/attack/attack_source.gd" id="1_fiyct"]
+
+[node name="tuba_attack_source" type="Node2D"]
+script = ExtResource("1_fiyct")

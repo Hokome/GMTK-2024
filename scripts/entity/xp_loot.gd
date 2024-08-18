@@ -4,4 +4,4 @@ class_name XPLoot
 @export var value: int = 1
 
 func loot():
-	game.loot(value, global_position)
+	game.loot.call_deferred(value, global_position)

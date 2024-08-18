@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b77xytamp54p"]
+[gd_scene load_steps=7 format=3 uid="uid://b77xytamp54p"]
 
 [ext_resource type="Script" path="res://ui/menus/menu_manager.gd" id="1_kvpfr"]
 [ext_resource type="PackedScene" uid="uid://borujsk6gckfo" path="res://ui/menus/main_menu.tscn" id="1_uwpqo"]
 [ext_resource type="PackedScene" uid="uid://cfm2tg2ad6ft6" path="res://ui/menus/pause_menu.tscn" id="3_658fm"]
 [ext_resource type="PackedScene" uid="uid://d1sp481g8ifss" path="res://ui/menus/game_over_menu.tscn" id="4_7ehcl"]
 [ext_resource type="PackedScene" uid="uid://7jop3ik8ticy" path="res://ui/menus/settings_menu.tscn" id="5_3nv4c"]
+[ext_resource type="PackedScene" uid="uid://b0ukbrid4cqnb" path="res://ui/menus/upgrade_menu.tscn" id="6_2kmqn"]
 
 [node name="menu" type="CanvasLayer" node_paths=PackedStringArray("starting_menu")]
 script = ExtResource("1_kvpfr")
@@ -19,4 +20,7 @@ visible = false
 visible = false
 
 [node name="settings" parent="." instance=ExtResource("5_3nv4c")]
+visible = false
+
+[node name="upgrade" parent="." instance=ExtResource("6_2kmqn")]
 visible = false

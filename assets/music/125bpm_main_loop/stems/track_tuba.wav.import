@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ceafehy0wbi0n"
-path="res://.godot/imported/gmtk2024 - TUBA.wav-a6c7e927ecb9fbdfcb3ca353ac369264.sample"
+path="res://.godot/imported/track_tuba.wav-80bf6cc645d86bc6502bc0b5e5761df7.sample"
 
 [deps]
 
-source_file="res://assets/music/125bpm_main_loop/stems/gmtk2024 - TUBA.wav"
-dest_files=["res://.godot/imported/gmtk2024 - TUBA.wav-a6c7e927ecb9fbdfcb3ca353ac369264.sample"]
+source_file="res://assets/music/125bpm_main_loop/stems/track_tuba.wav"
+dest_files=["res://.godot/imported/track_tuba.wav-80bf6cc645d86bc6502bc0b5e5761df7.sample"]
 
 [params]
 

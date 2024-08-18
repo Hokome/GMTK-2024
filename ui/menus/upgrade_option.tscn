@@ -1,19 +1,42 @@
-[gd_scene format=3 uid="uid://yctold6jgajo"]
+[gd_scene load_steps=3 format=3 uid="uid://yctold6jgajo"]
+
+[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="1_3rmsa"]
+[ext_resource type="Texture2D" uid="uid://3ydyuvlui0bu" path="res://assets/icons/icon_drum.png" id="1_h6blq"]
 
 [node name="upgrade_button" type="PanelContainer"]
+offset_right = 650.0
+offset_bottom = 180.0
+theme = ExtResource("1_3rmsa")
+theme_type_variation = &"UpgradeButton"
 
-[node name="h_box_container" type="HBoxContainer" parent="."]
+[node name="margin_container" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_3rmsa")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="h_box_container" type="HBoxContainer" parent="margin_container"]
 layout_mode = 2
 
-[node name="texture_rect" type="TextureRect" parent="h_box_container"]
-custom_minimum_size = Vector2(240, 240)
+[node name="texture_rect" type="TextureRect" parent="margin_container/h_box_container"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+texture = ExtResource("1_h6blq")
+expand_mode = 1
+
+[node name="v_box_container" type="VBoxContainer" parent="margin_container/h_box_container"]
 layout_mode = 2
 
-[node name="v_box_container" type="VBoxContainer" parent="h_box_container"]
+[node name="label" type="Label" parent="margin_container/h_box_container/v_box_container"]
 layout_mode = 2
+theme = ExtResource("1_3rmsa")
+theme_type_variation = &"HeaderMedium"
+text = "Title"
 
-[node name="label" type="Label" parent="h_box_container/v_box_container"]
+[node name="rich_text_label" type="RichTextLabel" parent="margin_container/h_box_container/v_box_container"]
+custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
-
-[node name="rich_text_label" type="RichTextLabel" parent="h_box_container/v_box_container"]
-layout_mode = 2
+text = "Description"
+fit_content = true

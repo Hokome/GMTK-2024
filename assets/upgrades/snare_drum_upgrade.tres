@@ -1,10 +1,16 @@
-[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=3 format=3 uid="uid://bx4f0amcgwc48"]
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=6 format=3 uid="uid://bx4f0amcgwc48"]
 
 [ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_7c70m"]
-[ext_resource type="AudioStream" uid="uid://bd27ogaimm87t" path="res://assets/music/100bpm_main_loop/snare_drum.wav" id="2_h40ex"]
+[ext_resource type="SpriteFrames" uid="uid://1h28ffnv60k8" path="res://assets/animations/frames_snare_drum.tres" id="1_fsr2r"]
+[ext_resource type="PackedScene" uid="uid://bi1nkuynpdc67" path="res://scenes/attacks/snare_drum_attack_source.tscn" id="1_hjvxv"]
+[ext_resource type="Texture2D" uid="uid://3ydyuvlui0bu" path="res://assets/icons/icon_drum.png" id="2_3mkwl"]
+[ext_resource type="AudioStream" uid="uid://bk6g8c2yiq1hb" path="res://assets/music/125bpm_main_loop/stems/track_snare_drum.wav" id="5_yeqyd"]
 
 [resource]
 script = ExtResource("1_7c70m")
 title = "Snare Drum"
-description = "Deals high damage in random spots around the musician"
-track = ExtResource("2_h40ex")
+description = "Deals high damage with attacks circling around the musician"
+attack = ExtResource("1_hjvxv")
+frames = ExtResource("1_fsr2r")
+icon = ExtResource("2_3mkwl")
+track = ExtResource("5_yeqyd")

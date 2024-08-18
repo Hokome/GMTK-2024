@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjta2ytbtdgne"]
+[gd_scene load_steps=7 format=3 uid="uid://dcp0bg557ehrj"]
 
-[ext_resource type="Script" path="res://scripts/circle_draw.gd" id="1_4bfc0"]
-[ext_resource type="Script" path="res://scripts/attack/ally_hitbox.gd" id="3_d8cfq"]
+[ext_resource type="Script" path="res://scripts/circle_draw.gd" id="1_s7uln"]
+[ext_resource type="Script" path="res://scripts/attack/ally_hitbox.gd" id="2_ljjvs"]
 
 [sub_resource type="Animation" id="Animation_qglw3"]
 length = 0.001
@@ -32,8 +32,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_imoly"]
 resource_name = "attack_animation"
-length = 0.3333
-step = 0.1667
+length = 0.2
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,7 +41,7 @@ tracks/0/path = NodePath("circle_draw/polygon_2d:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.166667, 0.3333),
+"times": PackedFloat32Array(0.1, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.196078), Color(1, 1, 1, 0)]
@@ -53,10 +53,10 @@ tracks/1/path = NodePath("circle_draw:radius")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.166667),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 0.5),
 "update": 0,
-"values": [0.0, 160.0]
+"values": [0.0, 60.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7m7w2"]
@@ -66,12 +66,12 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7aqms"]
-radius = 160.0
+radius = 60.0
 
-[node name="bass_drum_attack" type="Node2D"]
+[node name="snare_drum_attack" type="Node2D"]
 
 [node name="circle_draw" type="Node2D" parent="." node_paths=PackedStringArray("disk")]
-script = ExtResource("1_4bfc0")
+script = ExtResource("1_s7uln")
 disk = NodePath("polygon_2d")
 
 [node name="polygon_2d" type="Polygon2D" parent="circle_draw"]
@@ -87,8 +87,8 @@ autoplay = "attack_animation"
 [node name="ally_hitbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("3_d8cfq")
-damage = 20.0
+script = ExtResource("2_ljjvs")
+damage = 80.0
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="ally_hitbox"]
 shape = SubResource("CircleShape2D_7aqms")

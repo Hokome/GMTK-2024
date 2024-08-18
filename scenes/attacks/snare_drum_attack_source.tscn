@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi1nkuynpdc67"]
+
+[ext_resource type="Script" path="res://scripts/attack/circle_attack_source.gd" id="1_4h3f5"]
+[ext_resource type="PackedScene" uid="uid://dcp0bg557ehrj" path="res://scenes/attacks/snare_drum_attack.tscn" id="2_ehtdw"]
+
+[node name="snare_drum_attack_source" type="Node2D"]
+script = ExtResource("1_4h3f5")
+radius = 200.0
+angle_step = 22.5
+attack_scene = ExtResource("2_ehtdw")
+
+[node name="cooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="cooldown" to="." method="spawn_attack"]

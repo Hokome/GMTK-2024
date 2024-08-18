@@ -1,7 +1,7 @@
 extends Node
 class_name Game
 
-const BPM: float = 100.0
+const BPM: float = 125.0
 const ANIMATION_FPS: float = (BPM / 60.0)
 
 var menu: MenuManager
@@ -12,14 +12,12 @@ var paused := false:
 		paused = val
 		Engine.time_scale = 0 if paused else 1
 
-var start_time := 0
+var start_time := 0.0
 var started := false
 
 var upgrades: Array[BandMemberUpgrade] = [
 	preload("res://assets/upgrades/bass_drum_upgrade.tres"),
 	preload("res://assets/upgrades/snare_drum_upgrade.tres"),
-	preload("res://assets/upgrades/tuba_upgrade.tres"),
-	preload("res://assets/upgrades/trumpet_upgrade.tres"),
 ]
 var xp_drops: Dictionary = {
 	1: preload("res://scenes/xp_drop.tscn"),
@@ -48,6 +46,7 @@ func spawn_player():
 	player.get_node("health").died.connect(game_over)
 	
 	spawn_member(upgrades[0])
+	spawn_member(upgrades[1])
 
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
@@ -69,10 +68,8 @@ func loot(value: int, position: Vector2):
 	for i in value:
 		var scene: PackedScene = xp_drops[1]
 		var drop: XPDrop = scene.instantiate()
-		(func():
-			add_child(drop)
-			drop.position = position
-		).call_deferred()
+		add_child(drop)
+		drop.position = position
 
 func game_over():
 	paused = true

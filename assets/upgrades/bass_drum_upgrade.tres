@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_iubgc"]
 [ext_resource type="PackedScene" uid="uid://ufjfp4n1g7ft" path="res://scenes/attacks/bass_drum_attack_source.tscn" id="1_uxgk8"]
-[ext_resource type="SpriteFrames" uid="uid://fs8hx11p1sf5" path="res://assets/animations/bass_drum_frames.tres" id="2_7bwjt"]
-[ext_resource type="AudioStream" uid="uid://7fkyjiu3f4o8" path="res://assets/music/100bpm_main_loop/bass_drum.wav" id="2_18rtv"]
+[ext_resource type="SpriteFrames" uid="uid://fs8hx11p1sf5" path="res://assets/animations/frames_bass_drum.tres" id="2_7bwjt"]
 [ext_resource type="Texture2D" uid="uid://3ydyuvlui0bu" path="res://assets/icons/icon_drum.png" id="3_0gtjk"]
+[ext_resource type="AudioStream" uid="uid://ct7my8krt6iir" path="res://assets/music/125bpm_main_loop/stems/track_bass_drum.wav" id="5_etlme"]
 
 [resource]
 script = ExtResource("1_iubgc")
@@ -13,4 +13,4 @@ description = "Deals damage in a large area around the musician."
 attack = ExtResource("1_uxgk8")
 frames = ExtResource("2_7bwjt")
 icon = ExtResource("3_0gtjk")
-track = ExtResource("2_18rtv")
+track = ExtResource("5_etlme")
