@@ -25,6 +25,10 @@ var xp_drops: Dictionary = {
 }
 
 func start():
+	var upgrade_menu: UpgradeMenu = menu.get_node("upgrade")
+	if !upgrade_menu.upgrade_chosen.is_connected(game.spawn_member):
+		upgrade_menu.upgrade_chosen.connect(game.spawn_member)
+
 	started = true
 	hud.visible = true
 	
@@ -47,8 +51,6 @@ func spawn_player():
 	player.get_node("health").died.connect(game_over)
 	
 	spawn_member(upgrades[0])
-	spawn_member(upgrades[1])
-	spawn_member(upgrades[2])
 
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
@@ -73,6 +75,9 @@ func loot(value: int, position: Vector2):
 		add_child(drop)
 		drop.position = position
 
+func select_upgrades() -> Array[BandMemberUpgrade]:
+	return upgrades
+
 func game_over():
 	paused = true
 	menu.select_menu("game_over")
@@ -88,6 +93,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo(): return
 	if event.is_pressed():
 		if event.is_action("pause"):
-			if !started: return
+			if !started or paused: return
 			menu.select_menu("pause")
 			paused = true

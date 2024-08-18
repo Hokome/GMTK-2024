@@ -22,6 +22,9 @@ func add_track(track: AudioStreamWAV) -> void:
 	track_player.bus = "Music"
 	add_child(track_player)
 	track_players[track] = track_player
-	track_player.play()
+	if track_players.is_empty():
+		track_player.play()
+	else:
+		track_player.play(track_players.values()[0].get_playback_position())
 	
 	track_player.finished.connect(track_player.play)

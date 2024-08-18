@@ -10,21 +10,22 @@ func _ready():
 	game.menu = self
 	select_menu(starting_menu)
 
-func select_menu(menu):
+func select_menu(menu) -> Control:
 	menu_stack.clear()
 	if current_menu:
 		current_menu.visible = false
 	
-	if menu == null: return
+	if menu == null: return null
 	
 	if menu is String:
-		if menu.is_empty(): return
+		if menu.is_empty(): return null
 		current_menu = get_node(menu)
 	if menu is Control:
 		current_menu = menu
 	
 	if current_menu:
 		current_menu.visible = true
+	return current_menu
 
 func push_menu(menu):
 	if menu == null: return

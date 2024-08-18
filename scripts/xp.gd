@@ -14,12 +14,14 @@ var current: int = 0:
 var level: int = 0
 
 var next: int = 10
-const GROWTH: int = 10
+const GROWTH: int = 0
 
 func level_up():
 	level += 1
 	game.paused = true
-	game.menu.select_menu("upgrade")
+	var upgrade_menu: UpgradeMenu = game.menu.select_menu("upgrade")
+	upgrade_menu.show_upgrades(game.select_upgrades())
+	
 	var old_next := next
 	next += GROWTH
 	level_upped.emit(next)
