@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dx7ofru6ad8pa"]
 
-[ext_resource type="Script" path="res://scripts/entity.gd" id="1_1qu3r"]
-[ext_resource type="Script" path="res://scripts/player_controller.gd" id="2_67k4m"]
-[ext_resource type="Script" path="res://scripts/band_leader.gd" id="3_7tko6"]
-[ext_resource type="Script" path="res://scripts/health.gd" id="4_4ikf4"]
+[ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_1qu3r"]
+[ext_resource type="Script" path="res://scripts/entity/player_controller.gd" id="2_67k4m"]
+[ext_resource type="Script" path="res://scripts/entity/band_leader.gd" id="3_7tko6"]
+[ext_resource type="Script" path="res://scripts/entity/health.gd" id="4_4ikf4"]
 [ext_resource type="PackedScene" uid="uid://cyt8d3hqpd6ae" path="res://scenes/enemy_spawner.tscn" id="4_ekqs5"]
 [ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="6_oyb0s"]
 

@@ -49,6 +49,7 @@ func spawn_member(upgrade: BandMemberUpgrade):
 	leader.add_member(member)
 	leader.add_track(upgrade.track)
 	
+	member_entity.add_child(upgrade.attack.instantiate())
 	var sprite: AnimatedSprite2D = member_entity.get_node("sprite")
 	sprite.sprite_frames = upgrade.frames
 	upgrade.frames.set_animation_speed("default", ANIMATION_FPS)
