@@ -6,6 +6,7 @@ const ANIMATION_FPS: float = (BPM / 60.0)
 
 var menu: MenuManager
 var player: Entity
+var xp: XP
 var paused := false:
 	set(val):
 		paused = val
@@ -20,6 +21,9 @@ var upgrades: Array[BandMemberUpgrade] = [
 	preload("res://assets/upgrades/tuba_upgrade.tres"),
 	preload("res://assets/upgrades/trumpet_upgrade.tres"),
 ]
+var xp_drops: Dictionary = {
+	1: preload("res://scenes/xp_drop.tscn"),
+}
 
 func start():
 	started = true
@@ -31,6 +35,10 @@ func start():
 	
 	spawn_player()
 	start_time = Time.get_unix_time_from_system()
+	
+	xp = XP.new()
+	xp.value_changed.connect(hud.set_xp)
+	add_child(xp)
 
 func spawn_player():
 	var player_scene := preload("res://scenes/player.tscn")
@@ -55,6 +63,15 @@ func spawn_member(upgrade: BandMemberUpgrade):
 	upgrade.frames.set_animation_speed("default", ANIMATION_FPS)
 	sprite.animation = "default"
 	sprite.play()
+
+func loot(value: int, position: Vector2):
+	for i in value:
+		var scene: PackedScene = xp_drops[1]
+		var drop: XPDrop = scene.instantiate()
+		(func():
+			add_child(drop)
+			drop.position = position
+		).call_deferred()
 
 func game_over():
 	paused = true
