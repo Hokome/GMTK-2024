@@ -35,8 +35,8 @@ func _on_audio_slider_value_changed(value: float, channel: StringName) -> void:
 	var volume_db := slider_to_db(value)
 	AudioServer.set_bus_volume_db(bus_index, volume_db)
 
-
 func _on_save_pressed() -> void:
+	save_prefs()
 	game.menu.back()
 
 func add_resolutions_to_option_btns():
@@ -54,10 +54,12 @@ func _on_res_drop_down_item_selected(index: int) -> void:
 	var window_size = get_window().get_size_with_decorations()
 	get_window().set_position(screen_center-window_size/2)
 
-
 func _on_border_check_toggled(toggled_on: bool) -> void:
 	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,toggled_on)
 
-
 func _on_window_drop_down_item_selected(index: int) -> void:
 	DisplayServer.window_set_mode(window_modes.get(window_drop_down.get_item_text(index)))
+
+func save_prefs():
+	
+	pass
