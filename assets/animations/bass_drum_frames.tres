@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://fs8hx11p1sf5"]
+
+[ext_resource type="Texture2D" uid="uid://b58lpwikkpg4r" path="res://assets/members/member_bass_drum.png" id="1_isvxx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vskgv"]
+atlas = ExtResource("1_isvxx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3j5s"]
+atlas = ExtResource("1_isvxx")
+region = Rect2(64, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vskgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3j5s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

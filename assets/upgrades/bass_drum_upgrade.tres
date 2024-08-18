@@ -1,8 +1,14 @@
-[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=2 format=3 uid="uid://b1ij5mwc11igi"]
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=5 format=3 uid="uid://b1ij5mwc11igi"]
 
 [ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_iubgc"]
+[ext_resource type="PackedScene" uid="uid://ufjfp4n1g7ft" path="res://scenes/attacks/bass_drum_attack.tscn" id="1_vqno8"]
+[ext_resource type="SpriteFrames" uid="uid://fs8hx11p1sf5" path="res://assets/animations/bass_drum_frames.tres" id="2_7bwjt"]
+[ext_resource type="AudioStream" uid="uid://7fkyjiu3f4o8" path="res://assets/music/100bpm_main_loop/bass_drum.wav" id="2_18rtv"]
 
 [resource]
 script = ExtResource("1_iubgc")
 title = "Bass Drum"
-description = ""
+description = "Deals damage in a large area around the musician."
+attack = ExtResource("1_vqno8")
+frames = ExtResource("2_7bwjt")
+track = ExtResource("2_18rtv")

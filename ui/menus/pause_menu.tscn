@@ -42,17 +42,24 @@ layout_mode = 2
 theme = ExtResource("3_2ux82")
 alignment = 1
 
-[node name="resume_btn" type="Button" parent="center_container/v_box_container/button_container"]
+[node name="resume" type="Button" parent="center_container/v_box_container/button_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_2ux82")
 text = "Resume"
 
-[node name="quit_btn" type="Button" parent="center_container/v_box_container/button_container"]
+[node name="settings" type="Button" parent="center_container/v_box_container/button_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_2ux82")
+text = "Settings"
+
+[node name="quit" type="Button" parent="center_container/v_box_container/button_container"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_2ux82")
 text = "Quit"
 
-[connection signal="pressed" from="center_container/v_box_container/button_container/resume_btn" to="." method="_on_resume_btn_pressed"]
-[connection signal="pressed" from="center_container/v_box_container/button_container/quit_btn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="center_container/v_box_container/button_container/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="center_container/v_box_container/button_container/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="center_container/v_box_container/button_container/quit" to="." method="_on_quit_pressed"]

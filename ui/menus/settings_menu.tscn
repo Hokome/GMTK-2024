@@ -1,14 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://7jop3ik8ticy"]
+[gd_scene load_steps=3 format=3 uid="uid://7jop3ik8ticy"]
 
-[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="1_h68wd"]
+[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="1_gyqtf"]
+[ext_resource type="Script" path="res://ui/menus/settings_menu.gd" id="2_yvih8"]
 
-[node name="panel" type="Panel"]
+[node name="settings" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
+script = ExtResource("2_yvih8")
 
 [node name="center_container" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -17,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 
 [node name="entire_container" type="VBoxContainer" parent="center_container"]
 layout_mode = 2
@@ -26,7 +28,7 @@ theme_override_constants/separation = 50
 [node name="settings_label" type="Label" parent="center_container/entire_container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 theme_type_variation = &"BigLabel"
 text = "Settings"
 horizontal_alignment = 1
@@ -35,18 +37,18 @@ vertical_alignment = 1
 [node name="v_box_container" type="VBoxContainer" parent="center_container/entire_container"]
 process_mode = 3
 layout_mode = 2
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 alignment = 1
 
 [node name="resolution_container" type="GridContainer" parent="center_container/entire_container/v_box_container"]
 layout_mode = 2
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 columns = 2
 
 [node name="window_label" type="Label" parent="center_container/entire_container/v_box_container/resolution_container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 0
@@ -56,13 +58,13 @@ text = "Window Mode"
 custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 theme_override_constants/outline_size = 0
 
 [node name="resolution_label" type="Label" parent="center_container/entire_container/v_box_container/resolution_container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 0
@@ -73,38 +75,38 @@ text = "Resolution
 custom_minimum_size = Vector2(100, 10)
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 theme_override_constants/outline_size = 0
 
 [node name="h_separator" type="HSeparator" parent="center_container/entire_container/v_box_container"]
 layout_mode = 2
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 
 [node name="music_container" type="GridContainer" parent="center_container/entire_container/v_box_container"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 columns = 3
 
 [node name="master_slider" type="VSlider" parent="center_container/entire_container/v_box_container/music_container"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-value = 50.0
+value = 100.0
 tick_count = 4
 
 [node name="music_slider" type="VSlider" parent="center_container/entire_container/v_box_container/music_container"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-value = 50.0
+value = 100.0
 tick_count = 4
 
 [node name="sfx_slider" type="VSlider" parent="center_container/entire_container/v_box_container/music_container"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-value = 50.0
+value = 100.0
 tick_count = 4
 
 [node name="master_label" type="Label" parent="center_container/entire_container/v_box_container/music_container"]
@@ -131,23 +133,28 @@ size_flags_horizontal = 3
 theme_type_variation = &"HeaderSmall"
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/outline_size = 0
-text = "Sfx
-"
+text = "SFX"
 horizontal_alignment = 1
 
 [node name="btn_container" type="HBoxContainer" parent="center_container/entire_container/v_box_container"]
 layout_mode = 2
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 
-[node name="save_button" type="Button" parent="center_container/entire_container/v_box_container/btn_container"]
+[node name="save" type="Button" parent="center_container/entire_container/v_box_container/btn_container"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 text = "Save"
 
-[node name="back_button" type="Button" parent="center_container/entire_container/v_box_container/btn_container"]
+[node name="back" type="Button" parent="center_container/entire_container/v_box_container/btn_container"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("1_h68wd")
+theme = ExtResource("1_gyqtf")
 text = "Back
 "
+
+[connection signal="value_changed" from="center_container/entire_container/v_box_container/music_container/master_slider" to="." method="_on_audio_slider_value_changed" binds= [&"Master"]]
+[connection signal="value_changed" from="center_container/entire_container/v_box_container/music_container/music_slider" to="." method="_on_audio_slider_value_changed" binds= [&"Music"]]
+[connection signal="value_changed" from="center_container/entire_container/v_box_container/music_container/sfx_slider" to="." method="_on_audio_slider_value_changed" binds= [&"SFX"]]
+[connection signal="pressed" from="center_container/entire_container/v_box_container/btn_container/save" to="." method="_on_save_pressed"]

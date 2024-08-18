@@ -30,10 +30,16 @@ layout_mode = 2
 theme = ExtResource("2_qtk7b")
 text = "Start"
 
+[node name="settings" type="Button" parent="panel_container/margin_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("2_qtk7b")
+text = "Settings"
+
 [node name="quit" type="Button" parent="panel_container/margin_container/v_box_container"]
 layout_mode = 2
 theme = ExtResource("2_qtk7b")
 text = "Quit"
 
 [connection signal="pressed" from="panel_container/margin_container/v_box_container/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="panel_container/margin_container/v_box_container/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="panel_container/margin_container/v_box_container/quit" to="." method="_on_quit_pressed"]

@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=2 format=3 uid="uid://bx4f0amcgwc48"]
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=3 format=3 uid="uid://bx4f0amcgwc48"]
 
 [ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_7c70m"]
+[ext_resource type="AudioStream" uid="uid://bd27ogaimm87t" path="res://assets/music/100bpm_main_loop/snare_drum.wav" id="2_h40ex"]
 
 [resource]
 script = ExtResource("1_7c70m")
 title = "Snare Drum"
 description = "Deals high damage in random spots around the musician"
+track = ExtResource("2_h40ex")

@@ -1,6 +1,9 @@
 extends Node
 class_name Game
 
+const BPM: float = 100.0
+const ANIMATION_FPS: float = (BPM / 60.0)
+
 var menu: MenuManager
 var player: Entity
 var paused := false:
@@ -35,16 +38,23 @@ func spawn_player():
 	add_child(player)
 	player.get_node("health").died.connect(game_over)
 	
-	spawn_member()
-	spawn_member()
+	spawn_member(upgrades[0])
 	
-func spawn_member():
+func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
 	var member_entity: Entity = member_scene.instantiate()
 	member_entity.name = "member"
 	var member: BandMemberController = member_entity.get_node("member_controller")
-	player.get_node("band_leader").add_member(member)
+	var leader: BandLeader = player.get_node("band_leader")
+	leader.add_member(member)
+	leader.add_track(upgrade.track)
 	
+	var sprite: AnimatedSprite2D = member_entity.get_node("sprite")
+	sprite.sprite_frames = upgrade.frames
+	upgrade.frames.set_animation_speed("default", ANIMATION_FPS)
+	sprite.animation = "default"
+	sprite.play()
+
 func game_over():
 	paused = true
 	menu.select_menu("game_over")
@@ -60,5 +70,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo(): return
 	if event.is_pressed():
 		if event.is_action("pause"):
+			if !started: return
 			menu.select_menu("pause")
 			paused = true
