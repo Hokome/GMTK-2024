@@ -1,4 +1,5 @@
 extends Area2D
+class_name AllyHitbox
 
 @export var damage: float
 
@@ -13,6 +14,6 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	hit_bodies.append(body)
 	body.get_node("health").damage(damage)
-	
+
 func reset_hit():
 	hit_bodies.clear()
