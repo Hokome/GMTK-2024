@@ -154,6 +154,7 @@ theme = ExtResource("1_gyqtf")
 text = "Back
 "
 
+[connection signal="item_selected" from="center_container/entire_container/v_box_container/resolution_container/res_drop_down" to="." method="_on_res_drop_down_item_selected"]
 [connection signal="value_changed" from="center_container/entire_container/v_box_container/music_container/master_slider" to="." method="_on_audio_slider_value_changed" binds= [&"Master"]]
 [connection signal="value_changed" from="center_container/entire_container/v_box_container/music_container/music_slider" to="." method="_on_audio_slider_value_changed" binds= [&"Music"]]
 [connection signal="value_changed" from="center_container/entire_container/v_box_container/music_container/sfx_slider" to="." method="_on_audio_slider_value_changed" binds= [&"SFX"]]

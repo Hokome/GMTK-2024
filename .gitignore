@@ -2,7 +2,7 @@
 build/
 
 #addons
-addons/
+addons/script-tabs
 
 # Backup and temporary files
 *.kra~
