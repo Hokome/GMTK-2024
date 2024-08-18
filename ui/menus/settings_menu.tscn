@@ -78,6 +78,15 @@ size_flags_horizontal = 3
 theme = ExtResource("1_gyqtf")
 theme_override_constants/outline_size = 0
 
+[node name="border_check" type="CheckButton" parent="center_container/entire_container/v_box_container/resolution_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+button_pressed = true
+text = "Borderless"
+icon_alignment = 1
+expand_icon = true
+
 [node name="h_separator" type="HSeparator" parent="center_container/entire_container/v_box_container"]
 layout_mode = 2
 theme = ExtResource("1_gyqtf")
@@ -154,7 +163,9 @@ theme = ExtResource("1_gyqtf")
 text = "Back
 "
 
+[connection signal="item_selected" from="center_container/entire_container/v_box_container/resolution_container/window_drop_down" to="." method="_on_window_drop_down_item_selected"]
 [connection signal="item_selected" from="center_container/entire_container/v_box_container/resolution_container/res_drop_down" to="." method="_on_res_drop_down_item_selected"]
+[connection signal="toggled" from="center_container/entire_container/v_box_container/resolution_container/border_check" to="." method="_on_border_check_toggled"]
 [connection signal="value_changed" from="center_container/entire_container/v_box_container/music_container/master_slider" to="." method="_on_audio_slider_value_changed" binds= [&"Master"]]
 [connection signal="value_changed" from="center_container/entire_container/v_box_container/music_container/music_slider" to="." method="_on_audio_slider_value_changed" binds= [&"Music"]]
 [connection signal="value_changed" from="center_container/entire_container/v_box_container/music_container/sfx_slider" to="." method="_on_audio_slider_value_changed" binds= [&"SFX"]]
