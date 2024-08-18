@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dew7aock22woi"
+path="res://.godot/imported/gmtk2024 - strings.wav-36de493f7ae3735872db4c1db6890750.sample"
+
+[deps]
+
+source_file="res://assets/music/125bpm_main_loop/stems/gmtk2024 - strings.wav"
+dest_files=["res://.godot/imported/gmtk2024 - strings.wav-36de493f7ae3735872db4c1db6890750.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

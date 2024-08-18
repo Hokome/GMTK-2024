@@ -39,6 +39,7 @@ func start():
 	xp = XP.new()
 	xp.value_changed.connect(hud.set_xp)
 	add_child(xp)
+	hud.set_next_xp(xp.next)
 
 func spawn_player():
 	var player_scene := preload("res://scenes/player.tscn")
@@ -47,7 +48,7 @@ func spawn_player():
 	player.get_node("health").died.connect(game_over)
 	
 	spawn_member(upgrades[0])
-	
+
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
 	var member_entity: Entity = member_scene.instantiate()
