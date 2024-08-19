@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cabxqkghtkxtt"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cabxqkghtkxtt"]
 
 [ext_resource type="Texture2D" uid="uid://ikyk6tb0bqk1" path="res://ui/menus/full_screen_panel.tres" id="1_5dgso"]
 
@@ -10,6 +10,9 @@ bg_color = Color(0.6, 0.18, 0.18, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bh0ic"]
 bg_color = Color(0.281538, 0.711096, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egif6"]
+bg_color = Color(0.819608, 0.690196, 0.117647, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2fja"]
 bg_color = Color(0.20871, 0.20871, 0.20871, 1)
@@ -36,10 +39,14 @@ BigLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
 BigLabel/constants/shadow_outline_size = 20
 BigLabel/font_sizes/font_size = 60
 BoxContainer/constants/separation = 10
+<<<<<<< Updated upstream
 DamageNumber/base_type = &"Label"
 DamageNumber/colors/font_color = Color(1, 0.7595, 0.61, 1)
 DamageNumber/constants/outline_size = 12
 DamageNumber/font_sizes/font_size = 32
+=======
+Button/styles/pressed = null
+>>>>>>> Stashed changes
 FullScreenPanel/base_type = &"Panel"
 FullScreenPanel/styles/panel = SubResource("StyleBoxTexture_pyv1b")
 GridContainer/constants/h_separation = 10
@@ -49,6 +56,8 @@ HeaderMedium/font_sizes/font_size = 24
 HealthBar/base_type = &"ProgressBar"
 HealthBar/styles/background = SubResource("StyleBoxFlat_p20wd")
 HealthBar/styles/fill = SubResource("StyleBoxFlat_bh0ic")
+InputToggleButton/base_type = &"Button"
+InputToggleButton/styles/pressed = SubResource("StyleBoxFlat_egif6")
 MarginContainer/constants/margin_bottom = 5
 MarginContainer/constants/margin_left = 5
 MarginContainer/constants/margin_right = 5

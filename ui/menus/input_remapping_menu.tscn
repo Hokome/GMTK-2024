@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsd2maduydy6o"]
+
+[ext_resource type="Script" path="res://ui/menus/input_remapping_menu.gd" id="1_vl011"]
+[ext_resource type="PackedScene" uid="uid://pdtfk7xodf2g" path="res://ui/menus/input_remapper_scene.tscn" id="2_2rygd"]
+
+[node name="input_remapping_page" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vl011")
+input_remapper_scene = ExtResource("2_2rygd")
+
+[node name="center_container" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="v_box_container2" type="VBoxContainer" parent="center_container"]
+layout_mode = 2
+
+[node name="v_box_container3" type="VBoxContainer" parent="center_container/v_box_container2"]
+layout_mode = 2
+
+[node name="save" type="Button" parent="center_container/v_box_container2"]
+layout_mode = 2
+text = "Save"
+
+[connection signal="pressed" from="center_container/v_box_container2/save" to="." method="_on_save_pressed"]

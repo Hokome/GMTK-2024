@@ -61,5 +61,7 @@ func _on_window_drop_down_item_selected(index: int) -> void:
 	DisplayServer.window_set_mode(window_modes.get(window_drop_down.get_item_text(index)))
 
 func save_prefs():
-	
 	pass
+
+func _on_input_pressed() -> void:
+	game.menu.push_menu("input_remapping")

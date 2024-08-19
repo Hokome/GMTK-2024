@@ -1,13 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://1h28ffnv60k8"]
-
-[ext_resource type="Texture2D" uid="uid://cgishrkyua5q2" path="res://assets/members/member_snare_drum.png" id="1_68irt"]
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://1h28ffnv60k8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rg42"]
-atlas = ExtResource("1_68irt")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0sx60"]
-atlas = ExtResource("1_68irt")
 region = Rect2(64, 0, 64, 64)
 
 [resource]
