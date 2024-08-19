@@ -1,25 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4ybjb4s06par"]
+[gd_scene load_steps=5 format=3 uid="uid://dh2eeeaq1sh6b"]
 
-[ext_resource type="Script" path="res://scripts/attack/moving_attack.gd" id="1_puwk0"]
-[ext_resource type="Script" path="res://scripts/attack/ally_hitbox.gd" id="1_yu7yt"]
-[ext_resource type="Script" path="res://scripts/circle_draw.gd" id="2_ohe74"]
+[ext_resource type="Script" path="res://scripts/attack/moving_attack.gd" id="1_80fag"]
+[ext_resource type="Script" path="res://scripts/attack/ally_hitbox.gd" id="2_v40vc"]
+[ext_resource type="Script" path="res://scripts/circle_draw.gd" id="3_tywq3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4tn6a"]
-radius = 100.0
+radius = 80.0
 
-[node name="flute_attack" type="Node2D"]
-script = ExtResource("1_puwk0")
+[node name="trumpet_attack" type="Node2D"]
+script = ExtResource("1_80fag")
 speed = 100.0
 
 [node name="timeout" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 4.0
 autostart = true
 
 [node name="ally_hitbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("1_yu7yt")
-damage = 20.0
+script = ExtResource("2_v40vc")
+damage = 5.0
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="ally_hitbox"]
 shape = SubResource("CircleShape2D_4tn6a")
@@ -30,12 +30,12 @@ wait_time = 0.5
 autostart = true
 
 [node name="circle_draw" type="Node2D" parent="." node_paths=PackedStringArray("circle")]
-script = ExtResource("2_ohe74")
-radius = 100.0
+script = ExtResource("3_tywq3")
+radius = 80.0
 circle = NodePath("line_2d")
 
 [node name="line_2d" type="Line2D" parent="circle_draw"]
-points = PackedVector2Array(100, 0, 88.5456, 46.4723, 56.8065, 82.2984, 12.0537, 99.2709, -35.4605, 93.5016, -74.8511, 66.3123, -97.0942, 23.9316, -97.0942, -23.9316, -74.8511, -66.3123, -35.4605, -93.5016, 12.0537, -99.2709, 56.8065, -82.2984, 88.5456, -46.4723)
+points = PackedVector2Array(80, 0, 69.282, 40, 40, 69.282, 4.89859e-15, 80, -40, 69.282, -69.282, 40, -80, 9.79717e-15, -69.282, -40, -40, -69.282, -1.46958e-14, -80, 40, -69.282, 69.282, -40)
 closed = true
 default_color = Color(1, 0.959333, 0.39, 0.392157)
 

@@ -22,9 +22,10 @@ var upgrades: Array[BandMemberUpgrade] = [
 	preload("res://assets/upgrades/snare_drum_upgrade.tres"),
 	preload("res://assets/upgrades/tuba_upgrade.tres"),
 	preload("res://assets/upgrades/cymbal_upgrade.tres"),
-	preload("res://assets/upgrades/trumpet_upgrade.tres"),
-	#preload("res://assets/upgrades/keytar_upgrade.tres"),
+	#preload("res://assets/upgrades/trumpet_upgrade.tres"),
+	preload("res://assets/upgrades/keytar_upgrade.tres"),
 	preload("res://assets/upgrades/piano_upgrade.tres"),
+	preload("res://assets/upgrades/flute_upgrade.tres"),
 	preload("res://assets/upgrades/strings_upgrade.tres"),
 ]
 var xp_drops: Dictionary = {
@@ -64,7 +65,9 @@ func spawn_player():
 	add_child(player)
 	player.get_node("health").died.connect(game_over)
 	
-	spawn_member(upgrades[6])
+	#for u in upgrades:
+		#spawn_member(u)
+	spawn_member(upgrades[0])
 
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
@@ -91,6 +94,7 @@ func loot(value: int, position: Vector2):
 
 func select_upgrades() -> Array[BandMemberUpgrade]:
 	const UPGRADE_COUNT := 3
+	if upgrades.size() < UPGRADE_COUNT: upgrades
 	var selection: Array[BandMemberUpgrade] = []
 	while selection.size() < UPGRADE_COUNT:
 		var upgrade: BandMemberUpgrade = upgrades.pick_random()
