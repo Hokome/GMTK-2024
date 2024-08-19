@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5vgsj30fb12e"]
+
+[ext_resource type="Script" path="res://scripts/attack/attack_source.gd" id="1_deri7"]
+[ext_resource type="PackedScene" uid="uid://b6a2t3gjlt87n" path="res://scenes/attacks/cymbal_attack.tscn" id="2_1ftsv"]
+
+[node name="cymbals_attack_source_parent" type="Node2D"]
+
+[node name="attack_source" type="Node2D" parent="."]
+position = Vector2(0, -128)
+script = ExtResource("1_deri7")
+attack_scene = ExtResource("2_1ftsv")
+
+[node name="attack_source2" type="Node2D" parent="."]
+position = Vector2(0, 128)
+script = ExtResource("1_deri7")
+attack_scene = ExtResource("2_1ftsv")
+
+[node name="cooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="cooldown" to="attack_source" method="spawn_attack"]
+[connection signal="timeout" from="cooldown" to="attack_source2" method="spawn_attack"]
