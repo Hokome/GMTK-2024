@@ -6,6 +6,8 @@ class_name Entity
 const SPEED_DEBUFF_MULTIPLIER := 0.5
 
 @export var speed: float
+@export var sprite: AnimatedSprite2D
+
 var speed_debuff_time := 0.0
 var movement_direction: Vector2
 
@@ -15,4 +17,6 @@ func _physics_process(delta: float) -> void:
 		speed_debuff_time -= delta
 		final_speed *= SPEED_DEBUFF_MULTIPLIER
 	velocity = movement_direction * final_speed
+	if sprite:
+		sprite.flip_h = velocity.x > 0
 	move_and_slide()

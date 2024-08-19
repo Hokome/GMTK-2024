@@ -22,12 +22,13 @@ var upgrades: Array[BandMemberUpgrade] = [
 	preload("res://assets/upgrades/snare_drum_upgrade.tres"),
 	preload("res://assets/upgrades/tuba_upgrade.tres"),
 	preload("res://assets/upgrades/cymbal_upgrade.tres"),
-	#preload("res://assets/upgrades/trumpet_upgrade.tres"),
+	preload("res://assets/upgrades/trumpet_upgrade.tres"),
 	preload("res://assets/upgrades/keytar_upgrade.tres"),
 	preload("res://assets/upgrades/piano_upgrade.tres"),
 	preload("res://assets/upgrades/flute_upgrade.tres"),
 	preload("res://assets/upgrades/strings_upgrade.tres"),
 ]
+
 var xp_drops: Dictionary = {
 	1: preload("res://scenes/xp_drop.tscn"),
 }
