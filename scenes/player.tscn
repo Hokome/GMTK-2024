@@ -53,5 +53,6 @@ theme = ExtResource("6_oyb0s")
 theme_type_variation = &"HealthBar"
 value = 100.0
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
 [connection signal="health_changed" from="health" to="player_hud/health_bar" method="set_value"]
