@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0qpiw0tvsegp"]
 
-[ext_resource type="Script" path="res://scenes/attacks/spiral_attack_source.gd" id="1_l17da"]
+[ext_resource type="Script" path="res://scripts/attack/spiral_attack_source.gd" id="1_l17da"]
 [ext_resource type="PackedScene" uid="uid://b4ybjb4s06par" path="res://scenes/attacks/trumpet_attack.tscn" id="2_dbkqr"]
 
 [node name="trumpet_attack_source" type="Node2D"]
