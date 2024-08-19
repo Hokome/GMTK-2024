@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d311nkqnp2kt"]
+[gd_scene load_steps=9 format=3 uid="uid://d311nkqnp2kt"]
 
 [ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_07fhc"]
 [ext_resource type="Script" path="res://scripts/entity/enemy_follow.gd" id="1_8qy2a"]
 [ext_resource type="Script" path="res://scripts/entity/enemy_hitbox.gd" id="3_natej"]
 [ext_resource type="Script" path="res://scripts/entity/health.gd" id="4_7e7nd"]
 [ext_resource type="Script" path="res://scripts/entity/xp_loot.gd" id="5_bmle2"]
+[ext_resource type="Script" path="res://scripts/entity/damage_indicator.gd" id="6_phb00"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d57qw"]
 radius = 32.0
@@ -50,5 +51,9 @@ max_health = 40.0
 [node name="xp_loot" type="Node2D" parent="."]
 script = ExtResource("5_bmle2")
 
+[node name="damage_indicator" type="Node2D" parent="."]
+script = ExtResource("6_phb00")
+
+[connection signal="damage_taken" from="health" to="damage_indicator" method="damage" flags=3]
 [connection signal="died" from="health" to="." method="queue_free"]
 [connection signal="died" from="health" to="xp_loot" method="loot"]

@@ -3,6 +3,7 @@ class_name Health
 
 signal died
 signal health_changed(new_value: float)
+signal damage_taken(damage: float)
 
 @export var max_health: float = 100
 var health: float:
@@ -20,6 +21,7 @@ func _ready() -> void:
 
 func damage(amount: float):
 	health -= amount
+	damage_taken.emit(amount)
 
 func die() -> void:
 	died.emit()
