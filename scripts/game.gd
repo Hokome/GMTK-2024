@@ -15,6 +15,8 @@ var paused := false:
 var elapsed_time := 0.0
 var started := false
 
+var tilemap_layer:TileMapLayer
+
 var upgrades: Array[BandMemberUpgrade] = [
 	preload("res://assets/upgrades/bass_drum_upgrade.tres"),
 	preload("res://assets/upgrades/snare_drum_upgrade.tres"),
@@ -42,6 +44,7 @@ func start():
 	
 	var level_scene := preload("res://scenes/test_level.tscn")
 	var level = level_scene.instantiate()
+	tilemap_layer = level.get_node("tile_map_layer") as TileMapLayer
 	add_child(level)
 	
 	spawn_player()
