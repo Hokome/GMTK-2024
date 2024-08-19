@@ -1,10 +1,16 @@
-[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=3 format=3 uid="uid://r2epkqrlmugc"]
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=6 format=3 uid="uid://r2epkqrlmugc"]
 
+[ext_resource type="SpriteFrames" uid="uid://crhpsmix4omxj" path="res://assets/animations/frames_trumpet.tres" id="1_5b7s5"]
 [ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_mg3rk"]
+[ext_resource type="PackedScene" uid="uid://c0qpiw0tvsegp" path="res://scenes/attacks/trumpet_attack_source.tscn" id="1_uje5f"]
 [ext_resource type="Texture2D" uid="uid://cqmts8ox1p7yt" path="res://assets/icons/icon_trumpet.png" id="1_xwd55"]
+[ext_resource type="AudioStream" uid="uid://c366ahbjgngix" path="res://assets/music/125bpm_main_loop/stems/track_trumpet.wav" id="4_0wbvx"]
 
 [resource]
 script = ExtResource("1_mg3rk")
 title = "Trumpet"
-description = ""
+description = "Shoots slow projectiles outward that continuously damage enemies."
+attack = ExtResource("1_uje5f")
+frames = ExtResource("1_5b7s5")
 icon = ExtResource("1_xwd55")
+track = ExtResource("4_0wbvx")
