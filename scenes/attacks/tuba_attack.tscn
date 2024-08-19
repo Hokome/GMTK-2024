@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/circle_draw.gd" id="2_m30cf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4tn6a"]
-radius = 80.0
+radius = 120.0
 
 [node name="tuba_attack" type="Node2D"]
 
@@ -22,16 +22,16 @@ damage = 10.0
 shape = SubResource("CircleShape2D_4tn6a")
 
 [node name="timer" type="Timer" parent="ally_hitbox"]
-wait_time = 0.5
+wait_time = 0.25
 autostart = true
 
 [node name="circle_draw" type="Node2D" parent="." node_paths=PackedStringArray("circle")]
 script = ExtResource("2_m30cf")
-radius = 80.0
+radius = 120.0
 circle = NodePath("line_2d")
 
 [node name="line_2d" type="Line2D" parent="circle_draw"]
-points = PackedVector2Array(80, 0, 69.282, 40, 40, 69.282, 4.89859e-15, 80, -40, 69.282, -69.282, 40, -80, 9.79717e-15, -69.282, -40, -40, -69.282, -1.46958e-14, -80, 40, -69.282, 69.282, -40)
+points = PackedVector2Array(120, 0, 108.116, 52.066, 74.8188, 93.8198, 26.7025, 116.991, -26.7025, 116.991, -74.8188, 93.8198, -108.116, 52.066, -120, 1.46958e-14, -108.116, -52.066, -74.8188, -93.8198, -26.7025, -116.991, 26.7025, -116.991, 74.8188, -93.8198, 108.116, -52.066)
 closed = true
 default_color = Color(1, 0.959333, 0.39, 0.392157)
 
