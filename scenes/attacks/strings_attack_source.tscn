@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bteuqq7ilmjgh"]
+
+[ext_resource type="Script" path="res://scripts/attack/attack_source.gd" id="1_q4ahv"]
+[ext_resource type="PackedScene" uid="uid://carek0vb3irrm" path="res://scenes/attacks/strings_attack.tscn" id="2_83d3m"]
+
+[node name="strings_attack_source" type="Node2D"]
+script = ExtResource("1_q4ahv")
+attack_scene = ExtResource("2_83d3m")
+
+[node name="cooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="cooldown" to="." method="spawn_attack"]

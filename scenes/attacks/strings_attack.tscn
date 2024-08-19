@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://carek0vb3irrm"]
+
+[ext_resource type="Script" path="res://scripts/circle_draw.gd" id="1_4uabt"]
+[ext_resource type="Script" path="res://scripts/attack/ally_hitbox.gd" id="2_snk7w"]
+
+[sub_resource type="Animation" id="Animation_qglw3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("circle_draw/polygon_2d:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.633333, 0, 1, 0.196078)]
+}
+
+[sub_resource type="Animation" id="Animation_imoly"]
+resource_name = "attack_animation"
+length = 0.3333
+step = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("circle_draw/polygon_2d:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3333),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Color(0.631373, 0, 1, 0.196078), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m7w2"]
+_data = {
+"RESET": SubResource("Animation_qglw3"),
+"attack_animation": SubResource("Animation_imoly")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7aqms"]
+radius = 220.0
+
+[node name="piano_attack" type="Node2D"]
+
+[node name="circle_draw" type="Node2D" parent="." node_paths=PackedStringArray("disk")]
+script = ExtResource("1_4uabt")
+radius = 220.0
+disk = NodePath("polygon_2d")
+
+[node name="polygon_2d" type="Polygon2D" parent="circle_draw"]
+color = Color(0.633333, 0, 1, 0.196078)
+polygon = PackedVector2Array(220, 0, 208.08, 71.4339, 173.611, 135.127, 120.329, 184.177, 54.0068, 213.268, -18.1675, 219.249, -88.373, 201.47, -149.002, 161.859, -193.484, 104.708, -216.999, 36.2108, -216.999, -36.2108, -193.484, -104.708, -149.002, -161.859, -88.373, -201.47, -18.1675, -219.249, 54.0068, -213.268, 120.329, -184.177, 173.611, -135.127, 208.08, -71.4339)
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7m7w2")
+}
+autoplay = "attack_animation"
+
+[node name="ally_hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_snk7w")
+damage = 2.0
+effect_type = 2
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="ally_hitbox"]
+shape = SubResource("CircleShape2D_7aqms")
+
+[connection signal="animation_finished" from="animation_player" to="." method="queue_free" unbinds=1]
