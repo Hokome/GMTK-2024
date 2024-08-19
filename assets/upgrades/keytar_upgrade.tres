@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=3 format=3 uid="uid://31t14a8sgl1k"]
+
+[ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="1_1by6p"]
+[ext_resource type="Texture2D" uid="uid://dogt2k46x4a6f" path="res://assets/icons/icon_keytar.png" id="1_871k4"]
+
+[resource]
+script = ExtResource("1_1by6p")
+title = "Keytar"
+description = ""
+icon = ExtResource("1_871k4")

@@ -14,7 +14,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is not Entity: return
 	if hit_bodies.has(body): return
 	
-	hit_bodies.append(body)
+	colliding_bodies.append(body)
 	body.get_node("health").damage(damage)
 
 func _on_body_exited(body: Node2D) -> void:

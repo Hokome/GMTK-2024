@@ -14,7 +14,21 @@ Vampire survivors but you're a drum major (marching band leader) and your upgrad
 
 Ideas of what the instruments could do:
 
-Big bass: large area attack around the musician
+Big bass: Large area attack around the musician
+
+Snare drum: Small, high damage attacks that circle the musician
+
+Cymbal: Knockback attack
+
+Marimba: Attack buff
+
+Steel drum: Defense buff
+
+Tuba: Large long lasting hitbox
+
+Trumpet: Small, slow projectiles that are shot in a spiral
+
+Flute: Healing
 
 ## Aesthetic
 

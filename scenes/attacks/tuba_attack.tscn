@@ -22,7 +22,8 @@ damage = 10.0
 shape = SubResource("CircleShape2D_4tn6a")
 
 [node name="timer" type="Timer" parent="ally_hitbox"]
-wait_time = 0.25
+process_callback = 0
+wait_time = 0.5
 autostart = true
 
 [node name="circle_draw" type="Node2D" parent="." node_paths=PackedStringArray("circle")]

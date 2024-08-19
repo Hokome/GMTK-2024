@@ -82,7 +82,13 @@ func loot(value: int, position: Vector2):
 		drop.position = position
 
 func select_upgrades() -> Array[BandMemberUpgrade]:
-	return upgrades
+	const UPGRADE_COUNT := 3
+	var selection: Array[BandMemberUpgrade] = []
+	while selection.size() < UPGRADE_COUNT:
+		var upgrade: BandMemberUpgrade = upgrades.pick_random()
+		if selection.has(upgrade): continue
+		selection.append(upgrade)
+	return selection
 
 func game_over():
 	paused = true

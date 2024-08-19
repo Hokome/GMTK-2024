@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dx7ofru6ad8pa"]
+[gd_scene load_steps=9 format=3 uid="uid://dx7ofru6ad8pa"]
 
 [ext_resource type="Script" path="res://scripts/entity/entity.gd" id="1_1qu3r"]
 [ext_resource type="Script" path="res://scripts/entity/player_controller.gd" id="2_67k4m"]
 [ext_resource type="Script" path="res://scripts/entity/band_leader.gd" id="3_7tko6"]
 [ext_resource type="Script" path="res://scripts/entity/health.gd" id="4_4ikf4"]
 [ext_resource type="PackedScene" uid="uid://cyt8d3hqpd6ae" path="res://scenes/enemy_spawner.tscn" id="4_ekqs5"]
+[ext_resource type="Texture2D" uid="uid://c8cwwhc8sapi4" path="res://assets/members/member_conductor.png" id="5_jy67v"]
 [ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="6_oyb0s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_chqqo"]
@@ -26,9 +27,8 @@ script = ExtResource("3_7tko6")
 [node name="health" type="Node" parent="."]
 script = ExtResource("4_4ikf4")
 
-[node name="placeholder" type="Polygon2D" parent="."]
-color = Color(0.690196, 1, 1, 1)
-polygon = PackedVector2Array(0, -24, 24, 0, 0, 24, -24, 0)
+[node name="placeholder" type="Sprite2D" parent="."]
+texture = ExtResource("5_jy67v")
 
 [node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_chqqo")
