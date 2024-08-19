@@ -12,7 +12,7 @@ var paused := false:
 		paused = val
 		Engine.time_scale = 0 if paused else 1
 
-var start_time := 0.0
+var elapsed_time := 0.0
 var started := false
 
 var upgrades: Array[BandMemberUpgrade] = [
@@ -23,6 +23,10 @@ var upgrades: Array[BandMemberUpgrade] = [
 var xp_drops: Dictionary = {
 	1: preload("res://scenes/xp_drop.tscn"),
 }
+
+func _process(delta: float) -> void:
+	elapsed_time += delta
+	hud.update_time(elapsed_time)
 
 func start():
 	var upgrade_menu: UpgradeMenu = menu.get_node("upgrade")
@@ -37,12 +41,14 @@ func start():
 	add_child(level)
 	
 	spawn_player()
-	start_time = Time.get_unix_time_from_system()
 	
 	xp = XP.new()
 	xp.value_changed.connect(hud.set_xp)
 	add_child(xp)
 	hud.set_next_xp(xp.next)
+	xp.current = 0
+	
+	elapsed_time = 0.0
 
 func spawn_player():
 	var player_scene := preload("res://scenes/player.tscn")
