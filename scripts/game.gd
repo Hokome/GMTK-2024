@@ -24,7 +24,7 @@ var upgrades: Array[BandMemberUpgrade] = [
 	preload("res://assets/upgrades/cymbal_upgrade.tres"),
 	preload("res://assets/upgrades/trumpet_upgrade.tres"),
 	#preload("res://assets/upgrades/keytar_upgrade.tres"),
-	#preload("res://assets/upgrades/piano_upgrade.tres"),
+	preload("res://assets/upgrades/piano_upgrade.tres"),
 ]
 var xp_drops: Dictionary = {
 	1: preload("res://scenes/xp_drop.tscn"),
@@ -63,7 +63,7 @@ func spawn_player():
 	add_child(player)
 	player.get_node("health").died.connect(game_over)
 	
-	spawn_member(upgrades[0])
+	spawn_member(upgrades[5])
 
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")

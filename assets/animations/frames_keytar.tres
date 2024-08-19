@@ -1,12 +1,37 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://lmgih752tr2p"]
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://lmgih752tr2p"]
 
-[ext_resource type="Texture2D" uid="uid://cv8gf23tjuem3" path="res://assets/members/member_tuba.png" id="1_deq5k"]
+[ext_resource type="Texture2D" uid="uid://b0ho62aoixglw" path="res://assets/members/member_keytar.png" id="1_ihgrs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmhol"]
+atlas = ExtResource("1_ihgrs")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbjnq"]
+atlas = ExtResource("1_ihgrs")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7koh"]
+atlas = ExtResource("1_ihgrs")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f7pb"]
+atlas = ExtResource("1_ihgrs")
+region = Rect2(192, 0, 64, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_deq5k")
+"texture": SubResource("AtlasTexture_lmhol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbjnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7koh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f7pb")
 }],
 "loop": true,
 "name": &"default",
