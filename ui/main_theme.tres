@@ -39,16 +39,10 @@ BigLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
 BigLabel/constants/shadow_outline_size = 20
 BigLabel/font_sizes/font_size = 60
 BoxContainer/constants/separation = 10
-<<<<<<< Updated upstream
-DamageNumber/base_type = &"Label"
-DamageNumber/colors/font_color = Color(1, 0.7595, 0.61, 1)
-DamageNumber/constants/outline_size = 12
-DamageNumber/font_sizes/font_size = 32
-=======
-Button/styles/pressed = null
->>>>>>> Stashed changes
 FullScreenPanel/base_type = &"Panel"
 FullScreenPanel/styles/panel = SubResource("StyleBoxTexture_pyv1b")
+GappedBox/base_type = &"BoxContainer"
+GappedBox/constants/separation = 50
 GridContainer/constants/h_separation = 10
 GridContainer/constants/v_separation = 10
 HeaderMedium/base_type = &"Label"
