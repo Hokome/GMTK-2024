@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://borujsk6gckfo"]
+[gd_scene load_steps=7 format=3 uid="uid://borujsk6gckfo"]
 
 [ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="1_amord"]
 [ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="2_qtk7b"]
+[ext_resource type="Texture2D" uid="uid://diwkibuq5kxjm" path="res://assets/presentation/bgv2.png" id="2_wdveu"]
+[ext_resource type="Texture2D" uid="uid://b2ogpripo0kf6" path="res://assets/presentation/sitebannerv3.png" id="3_seys1"]
 [ext_resource type="AudioStream" uid="uid://cyo24p2ra2hm5" path="res://assets/music/opening_theme.wav" id="3_wjc1p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_63opd"]
+texture = ExtResource("2_wdveu")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="main" type="Panel"]
 anchors_preset = 15
@@ -11,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_qtk7b")
+theme_override_styles/panel = SubResource("StyleBoxTexture_63opd")
 script = ExtResource("1_amord")
 
 [node name="main" type="CenterContainer" parent="."]
@@ -26,14 +34,9 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("2_qtk7b")
 
-[node name="settings_label" type="Label" parent="main/v_box_container"]
+[node name="texture_rect" type="TextureRect" parent="main/v_box_container"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_qtk7b")
-theme_type_variation = &"BigLabel"
-text = "Game"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("3_seys1")
 
 [node name="start" type="Button" parent="main/v_box_container"]
 layout_mode = 2

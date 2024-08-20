@@ -15,5 +15,5 @@ func _on_quit_pressed() -> void:
 func _on_visibility_changed() -> void:
 	if !$main_theme.is_inside_tree(): return
 	
-	if visible:
+	if !$main_theme.playing:
 		$main_theme.play()

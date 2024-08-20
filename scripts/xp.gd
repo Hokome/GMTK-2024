@@ -16,7 +16,8 @@ var level: int = 0
 var next: int = 2
 const GROWTH: int = 1
 
-var audio_source: AudioStreamPlayer
+var collect_audio_source: AudioStreamPlayer
+var lvl_up_audio_source: AudioStreamPlayer
 var xp_collect_index := 0
 var xp_collect_sfx: Array[AudioStreamWAV] = [
 	preload("res://assets/sfx/xp_1.wav"),
@@ -30,23 +31,31 @@ var xp_collect_sfx: Array[AudioStreamWAV] = [
 ]
 
 func _ready() -> void:
-	audio_source = AudioStreamPlayer.new()
-	audio_source.bus = "SFX"
-	audio_source.max_polyphony = 2
-	add_child(audio_source)
+	collect_audio_source = AudioStreamPlayer.new()
+	collect_audio_source.bus = "SFX"
+	collect_audio_source.max_polyphony = 2
+	add_child(collect_audio_source)
+	
+	lvl_up_audio_source = AudioStreamPlayer.new()
+	lvl_up_audio_source.bus = "SFX"
+	lvl_up_audio_source.stream = preload("res://assets/sfx/lvl_up.wav")
+	add_child(lvl_up_audio_source)
+
 
 func level_up():
 	level += 1
+	lvl_up_audio_source.play()
 	game.paused = true
 	var upgrade_menu: UpgradeMenu = game.menu.select_menu("upgrade")
 	upgrade_menu.show_upgrades(game.select_upgrades())
 	
 	var old_next := next
 	next += GROWTH
+	
 	level_upped.emit(next)
 	current -= old_next
 
 func play_sound():
-	audio_source.stream = xp_collect_sfx[xp_collect_index]
+	collect_audio_source.stream = xp_collect_sfx[xp_collect_index]
 	xp_collect_index = posmod(xp_collect_index + 1, xp_collect_sfx.size())
-	audio_source.play()
+	collect_audio_source.play()
