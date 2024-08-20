@@ -86,10 +86,17 @@ func spawn_member(upgrade: BandMemberUpgrade):
 	sprite.animation = "default"
 	sprite.play()
 
+const HEAL_DROP_CHANCE := 0.05
+
 func loot(value: int, position: Vector2):
+	var heal_drop_rand := randf()
+	if heal_drop_rand < HEAL_DROP_CHANCE:
+		var heal: Collectible = preload("res://scenes/heal_drop.tscn").instantiate()
+		add_child(heal)
+		heal.position = position + Vector2(0, -50)
 	for i in value:
 		var scene: PackedScene = xp_drops[1]
-		var drop: XPDrop = scene.instantiate()
+		var drop: Collectible = scene.instantiate()
 		add_child(drop)
 		drop.position = position
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd0cj4g3kkhn7"]
+[gd_scene load_steps=4 format=3 uid="uid://dd0cj4g3kkhn7"]
 
-[ext_resource type="Script" path="res://scripts/xp_drop.gd" id="1_2i8r1"]
+[ext_resource type="Script" path="res://scripts/collectible.gd" id="1_2i8r1"]
+[ext_resource type="Script" path="res://scripts/xp_drop.gd" id="2_x7bjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nla4r"]
 radius = 16.0
@@ -9,6 +10,8 @@ radius = 16.0
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_2i8r1")
+magnet_distance = null
+magnet_speed = null
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nla4r")
@@ -16,3 +19,8 @@ shape = SubResource("CircleShape2D_nla4r")
 [node name="polygon_2d" type="Polygon2D" parent="."]
 color = Color(0.09, 0.469167, 1, 1)
 polygon = PackedVector2Array(0, 8, -8, 0, 0, -8, 8, 0)
+
+[node name="xp" type="Node" parent="."]
+script = ExtResource("2_x7bjn")
+
+[connection signal="collected" from="." to="xp" method="collect"]
