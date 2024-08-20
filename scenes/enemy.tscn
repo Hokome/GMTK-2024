@@ -24,6 +24,7 @@ sprite = NodePath("sprite")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_smrxh")
+autoplay = "default"
 
 [node name="follow_player" type="Node" parent="."]
 script = ExtResource("1_8qy2a")

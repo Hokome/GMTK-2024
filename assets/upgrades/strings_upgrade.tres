@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BandMemberUpgrade" load_steps=6 format=3 uid="uid://comjm6ibx706y"]
 
 [ext_resource type="PackedScene" uid="uid://bteuqq7ilmjgh" path="res://scenes/attacks/strings_attack_source.tscn" id="1_763dd"]
-[ext_resource type="SpriteFrames" uid="uid://dmlllcup1uhcv" path="res://assets/animations/frames_piano.tres" id="2_utgql"]
+[ext_resource type="SpriteFrames" uid="uid://cb0ef7swwnnfe" path="res://assets/animations/frames_strings.tres" id="2_ld1el"]
 [ext_resource type="Texture2D" uid="uid://crammx06echp0" path="res://assets/icons/icon_strings.png" id="3_82ufd"]
 [ext_resource type="Script" path="res://scripts/band_member_upgrade.gd" id="4_3avs8"]
 [ext_resource type="AudioStream" uid="uid://dew7aock22woi" path="res://assets/music/125bpm_main_loop/stems/track_strings.wav" id="5_ot57l"]
@@ -11,6 +11,6 @@ script = ExtResource("4_3avs8")
 title = "Strings"
 description = "Slows enemies down"
 attack = ExtResource("1_763dd")
-frames = ExtResource("2_utgql")
+frames = ExtResource("2_ld1el")
 icon = ExtResource("3_82ufd")
 track = ExtResource("5_ot57l")

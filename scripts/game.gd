@@ -1,7 +1,7 @@
 extends Node
 class_name Game
 
-const BPM: float = 125.0
+const BPM: float = 120.0
 const ANIMATION_FPS: float = (BPM / 60.0)
 
 var menu: MenuManager
@@ -33,10 +33,11 @@ var xp_drops: Dictionary = {
 	1: preload("res://scenes/xp_drop.tscn"),
 }
 
-const WIN_TIME: float = 10 * 60
+const WIN_TIME: float = 5 * 60
 
 var hit_sound_player: AudioStreamPlayer
 var game_over_player: AudioStreamPlayer
+var win_player: AudioStreamPlayer
 
 func _process(delta: float) -> void:
 	if !started: return
@@ -47,7 +48,10 @@ func _process(delta: float) -> void:
 		win()
 
 func win():
-	paused = true
+	player.get_node("band_leader").fade_tracks()
+	win_player.play()
+	win_player.finished.connect(set.bind("paused", true))
+	started = false
 	menu.select_menu("win")
 
 func start():
@@ -59,8 +63,13 @@ func start():
 	
 	game_over_player = AudioStreamPlayer.new()
 	game_over_player.stream = preload("res://assets/sfx/death.wav")
-	game_over_player.bus = "SFX"
+	game_over_player.bus = "Music"
 	add_child(game_over_player)
+	
+	win_player = AudioStreamPlayer.new()
+	win_player.stream = preload("res://assets/sfx/win_sound.wav")
+	win_player.bus = "Music"
+	add_child(win_player)
 	
 	var upgrade_menu: UpgradeMenu = menu.get_node("upgrade")
 	if !upgrade_menu.upgrade_chosen.is_connected(game.spawn_member):
@@ -138,6 +147,7 @@ func select_upgrades() -> Array[BandMemberUpgrade]:
 	return selection
 
 func game_over():
+	player.get_node("band_leader").fade_tracks()
 	game_over_player.play()
 	paused = true
 	menu.select_menu("game_over")
