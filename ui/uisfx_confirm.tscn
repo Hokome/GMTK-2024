@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://brdv6ko2i2xmt"]
+
+[ext_resource type="AudioStream" uid="uid://bdv2no02m5deh" path="res://assets/sfx/menu_button_confirm.wav" id="1_rprgk"]
+
+[node name="uisfx_confirm" type="AudioStreamPlayer"]
+stream = ExtResource("1_rprgk")
+bus = &"SFX"

@@ -13,8 +13,8 @@ var current: int = 0:
 
 var level: int = 0
 
-var next: int = 2
-const GROWTH: int = 1
+var next: int = 10
+const GROWTH: int = 2
 
 var collect_audio_source: AudioStreamPlayer
 var lvl_up_audio_source: AudioStreamPlayer

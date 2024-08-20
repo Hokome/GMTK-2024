@@ -36,13 +36,7 @@ var xp_drops: Dictionary = {
 const WIN_TIME: float = 10 * 60
 
 var hit_sound_player: AudioStreamPlayer
-
-func _ready() -> void:
-	hit_sound_player = AudioStreamPlayer.new()
-	hit_sound_player.stream = preload("res://assets/sfx/hit.wav")
-	hit_sound_player.bus = "SFX"
-	hit_sound_player.volume_db = -10
-	add_child(hit_sound_player)
+var game_over_player: AudioStreamPlayer
 
 func _process(delta: float) -> void:
 	if !started: return
@@ -57,6 +51,17 @@ func win():
 	menu.select_menu("win")
 
 func start():
+	hit_sound_player = AudioStreamPlayer.new()
+	hit_sound_player.stream = preload("res://assets/sfx/hit.wav")
+	hit_sound_player.bus = "SFX"
+	hit_sound_player.volume_db = -10
+	add_child(hit_sound_player)
+	
+	game_over_player = AudioStreamPlayer.new()
+	game_over_player.stream = preload("res://assets/sfx/death.wav")
+	game_over_player.bus = "SFX"
+	add_child(game_over_player)
+	
 	var upgrade_menu: UpgradeMenu = menu.get_node("upgrade")
 	if !upgrade_menu.upgrade_chosen.is_connected(game.spawn_member):
 		upgrade_menu.upgrade_chosen.connect(game.spawn_member)
@@ -79,6 +84,7 @@ func start():
 	
 	xp = XP.new()
 	xp.value_changed.connect(hud.set_xp)
+	xp.level_upped.connect(hud.set_next_xp)
 	add_child(xp)
 	hud.set_next_xp(xp.next)
 	xp.current = 0
@@ -132,6 +138,7 @@ func select_upgrades() -> Array[BandMemberUpgrade]:
 	return selection
 
 func game_over():
+	game_over_player.play()
 	paused = true
 	menu.select_menu("game_over")
 
