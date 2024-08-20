@@ -8,7 +8,10 @@ func save()->void:
 	ResourceSaver.save(self,"user://settings.tres")
 
 static func load_or_create()->UserSettings:
-	var res:UserSettings = load("user://settings.tres") as UserSettings
-	if !res:
+	var dir = "user://settings.tres"
+	var res:UserSettings
+	if ResourceLoader.exists(dir):
+		res = load(dir) as UserSettings
+	else:
 		res = UserSettings.new()
 	return res

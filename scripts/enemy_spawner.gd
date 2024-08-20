@@ -16,7 +16,7 @@ func _on_timer_timeout() -> void:
 	
 	var random_direction= Vector2(randf() - 0.5, randf() - 0.5).normalized()
 	
-	enemy.global_position = enemy.global_position + random_direction * offset
+	enemy.global_position = global_position + random_direction * offset
 	
 	enemy.get_node("follow_player").target = game.player
 	var enemy_health: Health = enemy.get_node("health")
