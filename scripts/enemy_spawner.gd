@@ -32,19 +32,22 @@ func _on_timer_timeout() -> void:
 			randf_range(spawn_rect.position.y, spawn_rect.end.y))
 		#print(spawn_position)
 				
+		
+		
+		var t = get_tree().get_nodes_in_group("band")
+		#print(t)
+		for m in t:
+			var mem = m as Node2D
+			var dist = mem.position.distance_to(spawn_position*offset)
+			print("dist",dist)
+			if dist<50:
+				spawn_position=spawn_position-mem.position.direction_to(spawn_position*offset)
+				break
+			
 		var data := tilemap_layer.get_cell_tile_data(tilemap_layer.local_to_map(spawn_position))
 		if !data: continue
 		var spawnable = data.get_custom_data("spawnable")
 		
-		var in_range_of_band:bool=false
-		for m in get_tree().get_nodes_in_group("band"):
-			var mem = m as CollisionShape2D
-			if mem.position.distance_to(spawn_position*offset)<offset:
-				in_range_of_band = true
-				break
-		if in_range_of_band:
-			continue
-			
 		if spawnable:
 			spawn_position *= offset
 			break

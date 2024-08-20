@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_q2ble"]
 radius = 24.0
 
-[node name="entity" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[node name="entity" type="CharacterBody2D" node_paths=PackedStringArray("sprite") groups=["band"]]
 collision_layer = 2
 motion_mode = 1
 wall_min_slide_angle = 0.872665
@@ -19,5 +19,5 @@ sprite = NodePath("sprite")
 [node name="member_controller" type="Node" parent="."]
 script = ExtResource("2_w6x3n")
 
-[node name="collider" type="CollisionShape2D" parent="." groups=["band"]]
+[node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_q2ble")
