@@ -2,17 +2,21 @@ extends Node2D
 class_name Spawner
 
 var spawn = preload("res://scenes/enemy.tscn")
-var offset: float = 3
 const HP_PER_SECOND: float = 1
 
 var tilemap_layer: TileMapLayer
 var spawn_rect: Rect2
+
+const WALL_OFFSET = 20
+const OFFSET = 3
 
 func _ready() -> void:
 	tilemap_layer = game.tilemap_layer
 	spawn_rect = tilemap_layer.get_used_rect()
 	var tile_scale := tilemap_layer.tile_set.tile_size.x
 	spawn_rect.position *= tile_scale
+	spawn_rect.position += Vector2.ONE * WALL_OFFSET
+	spawn_rect.size -= Vector2.ONE * WALL_OFFSET * 2
 	spawn_rect.size *= tile_scale
 
 func _on_timer_timeout() -> void:
@@ -30,22 +34,20 @@ func _on_timer_timeout() -> void:
 		spawn_position = Vector2(
 			randf_range(spawn_rect.position.x, spawn_rect.end.x),
 			randf_range(spawn_rect.position.y, spawn_rect.end.y))
-		#print(spawn_position)
-		
-		var t = get_tree().get_nodes_in_group("band")
-		#print(t)
-		for m: Node2D in t:
-			var dist = m.position.distance_to(spawn_position * offset)
-			if dist < 50:
-				spawn_position = spawn_position - m.position.direction_to(spawn_position * offset)
-				break
 		
 		var data := tilemap_layer.get_cell_tile_data(tilemap_layer.local_to_map(spawn_position))
 		if !data: continue
 		var spawnable = data.get_custom_data("spawnable")
 		
+		var t = get_tree().get_nodes_in_group("band")
+		#print(t)
+		for m: Node2D in t:
+			var dist = m.position.distance_to(spawn_position * OFFSET)
+			if dist < 50:
+				spawn_position = spawn_position - m.position.direction_to(spawn_position * OFFSET)
+				break
+				
 		if spawnable:
-			spawn_position *= offset
 			break
 	
 	enemy.global_position = spawn_position

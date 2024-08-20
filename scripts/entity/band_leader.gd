@@ -31,4 +31,4 @@ func unmute_track(track: AudioStreamWAV):
 
 func fade_tracks():
 	for t: AudioStreamPlayer in track_players.values():
-		var tween := create_tween()
+		t.volume_db = -INF
