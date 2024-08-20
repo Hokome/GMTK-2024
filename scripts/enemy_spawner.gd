@@ -3,6 +3,8 @@ class_name Spawner
 
 var spawn = preload("res://scenes/enemy.tscn")
 const HP_PER_SECOND: float = 1
+@onready var timer: Timer = $timer
+
 
 var tilemap_layer: TileMapLayer
 var spawn_rect: Rect2
@@ -56,3 +58,9 @@ func _on_timer_timeout() -> void:
 	var enemy_health: Health = enemy.get_node("health")
 	enemy_health.max_health += HP_PER_SECOND / game.elapsed_time
 	enemy_health.health = enemy_health.max_health
+
+func up_difficulty(level:int):
+	if(level%5==0):
+		if timer.wait_time<=.25:
+			return
+		timer.wait_time--.25

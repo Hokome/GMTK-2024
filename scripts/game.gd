@@ -94,6 +94,8 @@ func start():
 	xp = XP.new()
 	xp.value_changed.connect(hud.set_xp)
 	xp.level_upped.connect(hud.set_next_xp)
+	var spawner = player.get_node("spawner")
+	xp.level_upped.connect(spawner.up_difficulty)
 	add_child(xp)
 	hud.set_next_xp(xp.next)
 	xp.current = 0
