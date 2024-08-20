@@ -24,7 +24,6 @@ theme = ExtResource("2_qtk7b")
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme = ExtResource("2_qtk7b")
-theme_type_variation = &"GappedBox"
 
 [node name="settings_label" type="Label" parent="main/v_box_container"]
 layout_mode = 2

@@ -33,9 +33,19 @@ var xp_drops: Dictionary = {
 	1: preload("res://scenes/xp_drop.tscn"),
 }
 
+const WIN_TIME: float = 5
+
 func _process(delta: float) -> void:
+	if !started: return
 	elapsed_time += delta
 	hud.update_time(elapsed_time)
+	
+	if elapsed_time >= WIN_TIME:
+		win()
+
+func win():
+	paused = true
+	menu.select_menu("win")
 
 func start():
 	var upgrade_menu: UpgradeMenu = menu.get_node("upgrade")
@@ -116,9 +126,9 @@ func game_over():
 
 func cleanup():
 	started = false
+	paused = false
 	for c in get_children():
 		c.queue_free()
-	paused = false
 	hud.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:
