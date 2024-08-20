@@ -5,29 +5,41 @@ var spawn = preload("res://scenes/enemy.tscn")
 var offset: float = 500
 const HP_PER_SECOND: float = 1
 
-var tilemap_layer:TileMapLayer
+var tilemap_layer: TileMapLayer
+var spawn_rect: Rect2
 
 func _ready() -> void:
 	tilemap_layer = game.tilemap_layer
+	spawn_rect = tilemap_layer.get_used_rect()
+	var tile_scale := tilemap_layer.tile_set.tile_size.x
+	spawn_rect.position *= tile_scale
+	spawn_rect.size *= tile_scale
 
 func _on_timer_timeout() -> void:
 	var enemy: Entity = spawn.instantiate()
 	game.add_child(enemy)
 	
-	var spawn_loc
-	var counter = 10
-	while counter>0:
-		counter-=1
-		var random_direction= Vector2(randf() - 0.5, randf() - 0.5).normalized()
-		#spawn_loc = global_position + random_direction * offset
-		spawn_loc = get_global_mouse_position()
-		var tile = tilemap_layer.get_cell_tile_data(tilemap_layer.local_to_map(spawn_loc))
-		if !tile || !tile.get_custom_data("spawnable"):	
-			print(tilemap_layer.local_to_map(spawn_loc),tile)
-			enemy.queue_free()
-			return
+	var spawn_position: Vector2
+	var counter = 50
+	while true:
+		counter -= 1
+		if counter <= 0:
+			push_warning("Enemy spawning is taking too long")
+			await get_tree().process_frame
+		spawn_position = Vector2(
+			randf_range(spawn_rect.position.x, spawn_rect.end.x),
+			randf_range(spawn_rect.position.y, spawn_rect.end.y))
+		print(spawn_position)
+		
+		var data := tilemap_layer.get_cell_tile_data(tilemap_layer.local_to_map(spawn_position))
+		if !data: continue
+		var spawnable = data.get_custom_data("spawnable")
+
+		if spawnable:
+			spawn_position *= 5
+			break
 	
-	enemy.global_position = spawn_loc
+	enemy.global_position = spawn_position
 	
 	enemy.get_node("follow_player").target = game.player
 	var enemy_health: Health = enemy.get_node("health")

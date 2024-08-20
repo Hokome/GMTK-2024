@@ -33,7 +33,7 @@ var xp_drops: Dictionary = {
 	1: preload("res://scenes/xp_drop.tscn"),
 }
 
-const WIN_TIME: float = 5
+const WIN_TIME: float = 10 * 60
 
 func _process(delta: float) -> void:
 	if !started: return
