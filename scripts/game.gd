@@ -35,6 +35,15 @@ var xp_drops: Dictionary = {
 
 const WIN_TIME: float = 10 * 60
 
+var hit_sound_player: AudioStreamPlayer
+
+func _ready() -> void:
+	hit_sound_player = AudioStreamPlayer.new()
+	hit_sound_player.stream = preload("res://assets/sfx/hit.wav")
+	hit_sound_player.bus = "SFX"
+	hit_sound_player.volume_db = -10
+	add_child(hit_sound_player)
+
 func _process(delta: float) -> void:
 	if !started: return
 	elapsed_time += delta
@@ -61,6 +70,12 @@ func start():
 	add_child(level)
 	
 	spawn_player()
+	var leader: BandLeader = player.get_node("band_leader")
+	for u in upgrades:
+		leader.add_track(u.track)
+	#for u in upgrades:
+		#spawn_member(u)
+	spawn_member(upgrades[0])
 	
 	xp = XP.new()
 	xp.value_changed.connect(hud.set_xp)
@@ -75,10 +90,6 @@ func spawn_player():
 	player = player_scene.instantiate()
 	add_child(player)
 	player.get_node("health").died.connect(game_over)
-	
-	for u in upgrades:
-		spawn_member(u)
-	#spawn_member(upgrades[0])
 
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
@@ -87,7 +98,7 @@ func spawn_member(upgrade: BandMemberUpgrade):
 	var member: BandMemberController = member_entity.get_node("member_controller")
 	var leader: BandLeader = player.get_node("band_leader")
 	leader.add_member(member)
-	leader.add_track(upgrade.track)
+	leader.unmute_track(upgrade.track)
 	
 	member_entity.add_child(upgrade.attack.instantiate())
 	var sprite: AnimatedSprite2D = member_entity.get_node("sprite")
@@ -130,6 +141,10 @@ func cleanup():
 	for c in get_children():
 		c.queue_free()
 	hud.visible = false
+
+func play_hit():
+	hit_sound_player.play()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo(): return

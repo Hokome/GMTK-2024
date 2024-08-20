@@ -2,7 +2,7 @@ extends Node2D
 class_name Spawner
 
 var spawn = preload("res://scenes/enemy.tscn")
-var offset: float = 500
+var offset: float = 3
 const HP_PER_SECOND: float = 1
 
 var tilemap_layer: TileMapLayer
@@ -25,21 +25,32 @@ func _on_timer_timeout() -> void:
 		counter -= 1
 		if counter <= 0:
 			push_warning("Enemy spawning is taking too long")
-			await get_tree().process_frame
+			enemy.queue_free()
+			return
 		spawn_position = Vector2(
 			randf_range(spawn_rect.position.x, spawn_rect.end.x),
 			randf_range(spawn_rect.position.y, spawn_rect.end.y))
-		print(spawn_position)
-		
+		#print(spawn_position)
+				
 		var data := tilemap_layer.get_cell_tile_data(tilemap_layer.local_to_map(spawn_position))
 		if !data: continue
 		var spawnable = data.get_custom_data("spawnable")
-
+		
+		var in_range_of_band:bool=false
+		for m in get_tree().get_nodes_in_group("band"):
+			var mem = m as CollisionShape2D
+			if mem.position.distance_to(spawn_position*offset)<offset:
+				in_range_of_band = true
+				break
+		if in_range_of_band:
+			continue
+			
 		if spawnable:
-			spawn_position *= 5
+			spawn_position *= offset
 			break
 	
 	enemy.global_position = spawn_position
+	
 	
 	enemy.get_node("follow_player").target = game.player
 	var enemy_health: Health = enemy.get_node("health")

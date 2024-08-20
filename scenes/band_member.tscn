@@ -19,5 +19,5 @@ sprite = NodePath("sprite")
 [node name="member_controller" type="Node" parent="."]
 script = ExtResource("2_w6x3n")
 
-[node name="collider" type="CollisionShape2D" parent="."]
+[node name="collider" type="CollisionShape2D" parent="." groups=["band"]]
 shape = SubResource("CircleShape2D_q2ble")
