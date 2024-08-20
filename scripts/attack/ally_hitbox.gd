@@ -10,7 +10,6 @@ var hit_bodies: Array[Node2D] = []
 var colliding_bodies: Array[Node2D]
 
 func _ready() -> void:
-	if effect_type == DebuffType.ATTACK: print("yes")
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 

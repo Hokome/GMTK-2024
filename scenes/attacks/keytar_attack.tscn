@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbusgcce150bv"]
+
+[ext_resource type="Script" path="res://scripts/attack/ally_hitbox.gd" id="2_h463l"]
+
+[sub_resource type="Animation" id="Animation_qglw3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("polygon_2d:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_imoly"]
+resource_name = "attack_animation"
+length = 0.3333
+step = 0.1667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("polygon_2d:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.196078), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7m7w2"]
+_data = {
+"RESET": SubResource("Animation_qglw3"),
+"attack_animation": SubResource("Animation_imoly")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65kva"]
+size = Vector2(608, 48)
+
+[node name="keytar_drum_attack" type="Node2D"]
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7m7w2")
+}
+autoplay = "attack_animation"
+
+[node name="ally_hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("2_h463l")
+damage = 40.0
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="ally_hitbox"]
+shape = SubResource("RectangleShape2D_65kva")
+
+[node name="polygon_2d" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(304, -24, 304, 24, -304, 24, -304, -24)
+
+[connection signal="animation_finished" from="animation_player" to="." method="queue_free" unbinds=1]

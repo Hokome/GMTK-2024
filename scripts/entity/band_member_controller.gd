@@ -8,7 +8,6 @@ var front_member: Entity
 
 func _ready() -> void:
 	entity.position = front_member.position + Vector2(10,0)
-	#print("ready: " + name+" |"+str(entity.position))
 
 func _physics_process(_delta: float) -> void:
 	var direction := front_member.position - entity.position

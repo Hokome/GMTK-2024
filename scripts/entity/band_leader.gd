@@ -10,7 +10,6 @@ func _ready() -> void:
 
 func add_member(member: BandMemberController):
 	member.front_member = band_members.back()
-	print(str(member.front_member.position) + " " + member.front_member.name)
 	get_parent().get_parent().add_child(member.get_parent())
 	band_members.append(member.entity)
 
