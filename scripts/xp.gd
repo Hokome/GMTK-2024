@@ -32,6 +32,7 @@ var xp_collect_sfx: Array[AudioStreamWAV] = [
 func _ready() -> void:
 	audio_source = AudioStreamPlayer.new()
 	audio_source.bus = "SFX"
+	audio_source.max_polyphony = 2
 	add_child(audio_source)
 
 func level_up():
@@ -46,7 +47,6 @@ func level_up():
 	current -= old_next
 
 func play_sound():
-	if !audio_source.playing:
-		audio_source.stream = xp_collect_sfx[xp_collect_index]
-		xp_collect_index = posmod(xp_collect_index + 1, xp_collect_sfx.size())
-		audio_source.play()
+	audio_source.stream = xp_collect_sfx[xp_collect_index]
+	xp_collect_index = posmod(xp_collect_index + 1, xp_collect_sfx.size())
+	audio_source.play()

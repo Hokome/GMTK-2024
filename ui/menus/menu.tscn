@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://b77xytamp54p"]
+[gd_scene load_steps=10 format=3 uid="uid://b77xytamp54p"]
 
 [ext_resource type="Script" path="res://ui/menus/menu_manager.gd" id="1_kvpfr"]
 [ext_resource type="PackedScene" uid="uid://borujsk6gckfo" path="res://ui/menus/main_menu.tscn" id="1_uwpqo"]
+[ext_resource type="AudioStream" uid="uid://cyo24p2ra2hm5" path="res://assets/music/opening_theme.wav" id="2_lm4p8"]
 [ext_resource type="PackedScene" uid="uid://cfm2tg2ad6ft6" path="res://ui/menus/pause_menu.tscn" id="3_658fm"]
 [ext_resource type="PackedScene" uid="uid://d1sp481g8ifss" path="res://ui/menus/game_over_menu.tscn" id="4_7ehcl"]
 [ext_resource type="PackedScene" uid="uid://7jop3ik8ticy" path="res://ui/menus/settings_menu.tscn" id="5_3nv4c"]
@@ -13,6 +14,11 @@
 process_mode = 3
 script = ExtResource("1_kvpfr")
 starting_menu = NodePath("main")
+
+[node name="main_theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lm4p8")
+autoplay = true
+bus = &"Music"
 
 [node name="main" parent="." instance=ExtResource("1_uwpqo")]
 
@@ -33,3 +39,5 @@ visible = false
 
 [node name="win" parent="." instance=ExtResource("8_3s4fr")]
 visible = false
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

@@ -22,10 +22,6 @@ var window_modes : Dictionary = {
 var user_settings:UserSettings
 
 func _ready() -> void:
-	AudioServer.add_bus()
-	AudioServer.add_bus()
-	AudioServer.set_bus_name(1, "Music")
-	AudioServer.set_bus_name(2, "SFX")
 	add_resolutions_to_option_btns()
 	res_drop_down.selected=1
 	window_drop_down.selected=0
