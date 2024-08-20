@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://ui/menus/win_menu.gd" id="2_88u7c"]
 
 [node name="win" type="Panel"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,6 +36,7 @@ text = "You win!"
 [node name="back" type="Button" parent="center_container/v_box_container"]
 layout_mode = 2
 theme = ExtResource("1_v72cm")
+action_mode = 0
 text = "Back"
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
