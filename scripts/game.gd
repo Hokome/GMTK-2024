@@ -61,6 +61,12 @@ func start():
 	add_child(level)
 	
 	spawn_player()
+	var leader: BandLeader = player.get_node("band_leader")
+	for u in upgrades:
+		leader.add_track(u.track)
+	#for u in upgrades:
+		#spawn_member(u)
+	spawn_member(upgrades[0])
 	
 	xp = XP.new()
 	xp.value_changed.connect(hud.set_xp)
@@ -69,16 +75,13 @@ func start():
 	xp.current = 0
 	
 	elapsed_time = 0.0
+	
 
 func spawn_player():
 	var player_scene := preload("res://scenes/player.tscn")
 	player = player_scene.instantiate()
 	add_child(player)
 	player.get_node("health").died.connect(game_over)
-	
-	#for u in upgrades:
-		#spawn_member(u)
-	spawn_member(upgrades[0])
 
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
@@ -87,7 +90,7 @@ func spawn_member(upgrade: BandMemberUpgrade):
 	var member: BandMemberController = member_entity.get_node("member_controller")
 	var leader: BandLeader = player.get_node("band_leader")
 	leader.add_member(member)
-	leader.add_track(upgrade.track)
+	leader.unmute_track(upgrade.track)
 	
 	member_entity.add_child(upgrade.attack.instantiate())
 	var sprite: AnimatedSprite2D = member_entity.get_node("sprite")

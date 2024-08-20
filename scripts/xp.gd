@@ -13,7 +13,7 @@ var current: int = 0:
 
 var level: int = 0
 
-var next: int = 10
+var next: int = 2
 const GROWTH: int = 1
 
 func level_up():
