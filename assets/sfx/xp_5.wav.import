@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://df5elxlawntn1"
-path="res://.godot/imported/Death 1.wav-62769249527db5218dfb36305a3e1f71.sample"
+uid="uid://ru15ir0rob0y"
+path="res://.godot/imported/xp_5.wav-c6dba2eaf750f2b46e3928bf23de2891.sample"
 
 [deps]
 
-source_file="res://assets/SFX/Death 1.wav"
-dest_files=["res://.godot/imported/Death 1.wav-62769249527db5218dfb36305a3e1f71.sample"]
+source_file="res://assets/sfx/xp_5.wav"
+dest_files=["res://.godot/imported/xp_5.wav-c6dba2eaf750f2b46e3928bf23de2891.sample"]
 
 [params]
 

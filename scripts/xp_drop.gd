@@ -4,3 +4,4 @@ extends Node
 
 func collect():
 	game.xp.current += amount
+	game.xp.play_sound()
