@@ -1,19 +1,23 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dgo5nxfaphfkw"]
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dgo5nxfaphfkw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kh2fe"]
+[ext_resource type="Texture2D" uid="uid://bcxg1hkxfuklu" path="res://assets/members/member_cymbals.png" id="1_2ol6m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn3sv"]
+atlas = ExtResource("1_2ol6m")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7a4sr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_shja2"]
+atlas = ExtResource("1_2ol6m")
 region = Rect2(64, 0, 64, 64)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kh2fe")
+"texture": SubResource("AtlasTexture_pn3sv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7a4sr")
+"texture": SubResource("AtlasTexture_shja2")
 }],
 "loop": true,
 "name": &"default",
