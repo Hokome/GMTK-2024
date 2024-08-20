@@ -9,7 +9,7 @@
 [resource]
 script = ExtResource("1_1by6p")
 title = "Keytar"
-description = "Boosts attack damage of nearby musicians"
+description = "Deals damage in a horizontal line"
 attack = ExtResource("1_rlqyt")
 frames = ExtResource("2_u6dn4")
 icon = ExtResource("1_871k4")

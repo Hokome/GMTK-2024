@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu56russ6vc4e"]
+[gd_scene load_steps=2 format=3 uid="uid://cu56russ6vc4e"]
 
 [ext_resource type="Script" path="res://scripts/attack/random_attack_source.gd" id="1_c80mo"]
-[ext_resource type="PackedScene" uid="uid://dh2eeeaq1sh6b" path="res://scenes/attacks/flute_attack.tscn" id="2_jnrxo"]
 
 [node name="flute_attack_source" type="Node2D"]
 script = ExtResource("1_c80mo")
-variation_radius = 200.0
-attack_scene = ExtResource("2_jnrxo")
 
 [node name="cooldown" type="Timer" parent="."]
 process_callback = 0

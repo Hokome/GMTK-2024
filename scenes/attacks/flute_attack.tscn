@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh2eeeaq1sh6b"]
+[gd_scene load_steps=4 format=3 uid="uid://dh2eeeaq1sh6b"]
 
-[ext_resource type="Script" path="res://scripts/attack/moving_attack.gd" id="1_80fag"]
 [ext_resource type="Script" path="res://scripts/attack/ally_hitbox.gd" id="2_v40vc"]
 [ext_resource type="Script" path="res://scripts/circle_draw.gd" id="3_tywq3"]
 
@@ -8,8 +7,6 @@
 radius = 80.0
 
 [node name="trumpet_attack" type="Node2D"]
-script = ExtResource("1_80fag")
-speed = 100.0
 
 [node name="timeout" type="Timer" parent="."]
 wait_time = 4.0

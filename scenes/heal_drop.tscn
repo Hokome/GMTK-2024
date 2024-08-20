@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp14bcw0t7k3q"]
+
+[ext_resource type="Script" path="res://scripts/collectible.gd" id="1_lpw0u"]
+[ext_resource type="Script" path="res://scripts/heal_item.gd" id="2_7r4l7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nla4r"]
+radius = 24.0
+
+[node name="heal_drop" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_lpw0u")
+magnet_distance = null
+magnet_speed = null
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nla4r")
+
+[node name="polygon_2d" type="Polygon2D" parent="."]
+color = Color(0.09, 1, 0.332667, 1)
+polygon = PackedVector2Array(0, 16, -16, 0, 0, -16, 16, 0)
+
+[node name="heal" type="Node" parent="."]
+script = ExtResource("2_7r4l7")
+
+[connection signal="collected" from="." to="heal" method="collect"]

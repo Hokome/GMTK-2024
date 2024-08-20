@@ -33,9 +33,19 @@ var xp_drops: Dictionary = {
 	1: preload("res://scenes/xp_drop.tscn"),
 }
 
+const WIN_TIME: float = 5
+
 func _process(delta: float) -> void:
+	if !started: return
 	elapsed_time += delta
 	hud.update_time(elapsed_time)
+	
+	if elapsed_time >= WIN_TIME:
+		win()
+
+func win():
+	paused = true
+	menu.select_menu("win")
 
 func start():
 	var upgrade_menu: UpgradeMenu = menu.get_node("upgrade")
@@ -66,9 +76,9 @@ func spawn_player():
 	add_child(player)
 	player.get_node("health").died.connect(game_over)
 	
-	#for u in upgrades:
-		#spawn_member(u)
-	spawn_member(upgrades[0])
+	for u in upgrades:
+		spawn_member(u)
+	#spawn_member(upgrades[0])
 
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
@@ -86,10 +96,17 @@ func spawn_member(upgrade: BandMemberUpgrade):
 	sprite.animation = "default"
 	sprite.play()
 
+const HEAL_DROP_CHANCE := 0.05
+
 func loot(value: int, position: Vector2):
+	var heal_drop_rand := randf()
+	if heal_drop_rand < HEAL_DROP_CHANCE:
+		var heal: Collectible = preload("res://scenes/heal_drop.tscn").instantiate()
+		add_child(heal)
+		heal.position = position + Vector2(0, -50)
 	for i in value:
 		var scene: PackedScene = xp_drops[1]
-		var drop: XPDrop = scene.instantiate()
+		var drop: Collectible = scene.instantiate()
 		add_child(drop)
 		drop.position = position
 
@@ -109,9 +126,9 @@ func game_over():
 
 func cleanup():
 	started = false
+	paused = false
 	for c in get_children():
 		c.queue_free()
-	paused = false
 	hud.visible = false
 
 func _unhandled_input(event: InputEvent) -> void:

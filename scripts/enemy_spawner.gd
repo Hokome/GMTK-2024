@@ -3,7 +3,7 @@ class_name Spawner
 
 var spawn = preload("res://scenes/enemy.tscn")
 var offset: float = 500
-const HP_PER_SECOND: float = 0.5
+const HP_PER_SECOND: float = 1
 
 var tilemap_layer:TileMapLayer
 

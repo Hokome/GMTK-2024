@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsg6yjjgxlyp4"]
+
+[ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="1_v72cm"]
+[ext_resource type="Script" path="res://ui/menus/win_menu.gd" id="2_88u7c"]
+
+[node name="win" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_v72cm")
+theme_type_variation = &"FullScreenPanel"
+script = ExtResource("2_88u7c")
+
+[node name="center_container" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_v72cm")
+
+[node name="v_box_container" type="VBoxContainer" parent="center_container"]
+layout_mode = 2
+theme = ExtResource("1_v72cm")
+
+[node name="win_label" type="Label" parent="center_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("1_v72cm")
+theme_type_variation = &"BigLabel"
+text = "You win!"
+
+[node name="back" type="Button" parent="center_container/v_box_container"]
+layout_mode = 2
+theme = ExtResource("1_v72cm")
+text = "Back"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="pressed" from="center_container/v_box_container/back" to="." method="_on_back_pressed"]

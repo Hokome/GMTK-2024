@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://bxdhvsh1vfyo"]
+[gd_scene load_steps=3 format=3 uid="uid://bxdhvsh1vfyo"]
+
+[ext_resource type="Script" path="res://scripts/attack/attack_source.gd" id="1_1c5v7"]
+[ext_resource type="PackedScene" uid="uid://cbusgcce150bv" path="res://scenes/attacks/keytar_attack.tscn" id="2_loore"]
 
 [node name="keytar_attack_source" type="Node2D"]
+script = ExtResource("1_1c5v7")
+attack_scene = ExtResource("2_loore")
+
+[node name="timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="timer" to="." method="spawn_attack"]
