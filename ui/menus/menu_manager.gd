@@ -54,8 +54,3 @@ func back() -> void:
 
 func exit():
 	get_tree().quit()
-
-
-func _on_visibility_changed() -> void:
-	if visible:
-		$main_theme.play()

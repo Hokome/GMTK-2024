@@ -35,6 +35,15 @@ var xp_drops: Dictionary = {
 
 const WIN_TIME: float = 10 * 60
 
+var hit_sound_player: AudioStreamPlayer
+
+func _ready() -> void:
+	hit_sound_player = AudioStreamPlayer.new()
+	hit_sound_player.stream = preload("res://assets/sfx/hit.wav")
+	hit_sound_player.bus = "SFX"
+	hit_sound_player.volume_db = -10
+	add_child(hit_sound_player)
+
 func _process(delta: float) -> void:
 	if !started: return
 	elapsed_time += delta
@@ -75,7 +84,6 @@ func start():
 	xp.current = 0
 	
 	elapsed_time = 0.0
-	
 
 func spawn_player():
 	var player_scene := preload("res://scenes/player.tscn")
@@ -133,6 +141,10 @@ func cleanup():
 	for c in get_children():
 		c.queue_free()
 	hud.visible = false
+
+func play_hit():
+	hit_sound_player.play()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo(): return

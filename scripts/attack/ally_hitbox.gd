@@ -20,6 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 	colliding_bodies.append(body)
 	match effect_type:
 		DebuffType.NONE:
+			game.play_hit()
 			body.get_node("health").damage(damage)
 		DebuffType.ATTACK:
 			body.get_node("hitbox").damage_debuff_time = damage

@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://borujsk6gckfo"]
+[gd_scene load_steps=4 format=3 uid="uid://borujsk6gckfo"]
 
 [ext_resource type="Script" path="res://ui/menus/main_menu.gd" id="1_amord"]
 [ext_resource type="Theme" uid="uid://cabxqkghtkxtt" path="res://ui/main_theme.tres" id="2_qtk7b"]
+[ext_resource type="AudioStream" uid="uid://cyo24p2ra2hm5" path="res://assets/music/opening_theme.wav" id="3_wjc1p"]
 
-[node name="panel_container" type="Panel"]
+[node name="main" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -49,6 +50,12 @@ layout_mode = 2
 theme = ExtResource("2_qtk7b")
 text = "Quit"
 
+[node name="main_theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wjc1p")
+autoplay = true
+bus = &"Music"
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="main/v_box_container/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="main/v_box_container/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="main/v_box_container/quit" to="." method="_on_quit_pressed"]
