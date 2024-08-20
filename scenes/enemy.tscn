@@ -46,6 +46,7 @@ one_shot = true
 
 [node name="health" type="Node" parent="."]
 script = ExtResource("4_7e7nd")
+invincible = true
 max_health = 40.0
 
 [node name="xp_loot" type="Node2D" parent="."]
