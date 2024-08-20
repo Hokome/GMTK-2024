@@ -1,21 +1,15 @@
-[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://dmlllcup1uhcv"]
-
-[ext_resource type="Texture2D" uid="uid://rqhyycv426wk" path="res://assets/members/member_piano.png" id="1_dc80h"]
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://dmlllcup1uhcv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rx3rx"]
-atlas = ExtResource("1_dc80h")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ompji"]
-atlas = ExtResource("1_dc80h")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a305t"]
-atlas = ExtResource("1_dc80h")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6cxq"]
-atlas = ExtResource("1_dc80h")
 region = Rect2(192, 0, 64, 64)
 
 [resource]
