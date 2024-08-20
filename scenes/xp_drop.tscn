@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd0cj4g3kkhn7"]
+[gd_scene load_steps=5 format=3 uid="uid://dd0cj4g3kkhn7"]
 
 [ext_resource type="Script" path="res://scripts/collectible.gd" id="1_2i8r1"]
+[ext_resource type="Texture2D" uid="uid://c1ky6nijxc7r7" path="res://assets/collectibles/seashell.png" id="2_vf7r1"]
 [ext_resource type="Script" path="res://scripts/xp_drop.gd" id="2_x7bjn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nla4r"]
@@ -16,9 +17,8 @@ magnet_speed = null
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nla4r")
 
-[node name="polygon_2d" type="Polygon2D" parent="."]
-color = Color(0.09, 0.469167, 1, 1)
-polygon = PackedVector2Array(0, 8, -8, 0, 0, -8, 8, 0)
+[node name="sprite_2d" type="Sprite2D" parent="."]
+texture = ExtResource("2_vf7r1")
 
 [node name="xp" type="Node" parent="."]
 script = ExtResource("2_x7bjn")

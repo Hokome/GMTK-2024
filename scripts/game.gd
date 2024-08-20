@@ -76,9 +76,9 @@ func spawn_player():
 	add_child(player)
 	player.get_node("health").died.connect(game_over)
 	
-	for u in upgrades:
-		spawn_member(u)
-	#spawn_member(upgrades[0])
+	#for u in upgrades:
+		#spawn_member(u)
+	spawn_member(upgrades[0])
 
 func spawn_member(upgrade: BandMemberUpgrade):
 	var member_scene := preload("res://scenes/band_member.tscn")
