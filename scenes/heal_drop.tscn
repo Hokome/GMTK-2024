@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b1vn4w62h780w" path="res://assets/collectibles/sushi.png" id="3_s7imk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nla4r"]
-radius = 24.0
+radius = 50.0
 
 [node name="heal_drop" type="Area2D"]
 collision_layer = 0
@@ -17,8 +17,10 @@ shape = SubResource("CircleShape2D_nla4r")
 
 [node name="heal" type="Node" parent="."]
 script = ExtResource("2_7r4l7")
+amount = 50.0
 
 [node name="sprite_2d" type="Sprite2D" parent="."]
+scale = Vector2(1.66517, 1.66517)
 texture = ExtResource("3_s7imk")
 
 [connection signal="collected" from="." to="heal" method="collect"]
